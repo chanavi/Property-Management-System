@@ -1,0 +1,151 @@
+*{
+  font-family: 'Raleway', sans-serif;
+}
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  background-image: url("apt_images/9001-img1.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+section{
+  width: 35%;
+  position: absolute;
+  top: 100px;
+  margin-left: 40px;
+}
+.sm-img{
+  display:none;
+}
+
+.section-1{
+  position: relative;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+.btn-dark{
+  background-color: #17a2b8;
+  border:#17a2b8;
+}
+.btn-dark:hover{
+  background-color:#0141BD;
+  border:#0141BD;
+}
+.btn-dark:focus{
+  background-color: #17a2b8;
+}
+.btn-outline-dark {
+  border-color: #17a2b8;
+  color: #17a2b8;
+}
+
+.btn-outline-dark:hover {
+  background-color: #0141BD;
+  border-color:#0141BD;
+  color: white;
+}
+.brand{
+  color: #546C78;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.card-title{
+  margin-bottom: 20px;
+}
+.card-img-top{
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+.cdetails{
+  padding-top: 2px;
+  padding-bottom: 2px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.fil{
+  margin-right:5px;
+  height: auto;
+}
+.filter-applied{
+  color: grey;
+  margin-bottom: 40px;
+}
+.filter-del{
+  background-color: #2C353E;
+  border: none;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  margin-left: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.filter-del:hover{
+  border: none;
+  background-color: black;
+}
+.filter-style{
+  background-color:#E7AF4F;
+  padding: 6px;
+  padding-right: 0;
+  color: white;
+  border-radius: 7px;
+  margin-right: 10px;
+}
+.footer{
+  background-color:#3f4c60 ;
+}
+.header{
+  width: 100%;
+}
+#heading{
+  margin-bottom: 50px;
+  padding-top: 20px;
+  font-size: 3vw;
+}
+.hide_details{
+  position: relative;
+}
+.invisible{
+  display: none;
+}
+.mb-3{
+  width: 50%;
+  padding-bottom: 20px;
+}
+.mainbtn{
+  margin: 10px;
+  width: 150px;
+}
+.main-btns{
+  margin-top: 20px;
+}
+.main-heading{
+  font-size: 4.2vw;
+}
+.navbar{
+  position: absolute;
+  width: 100%;
+}
+.navbar-brand{
+  margin-left: 20px;
+}
+.navbar-custom{
+  background-color: #17a2b8;
+}
+.navbar-nav{
+  margin-right: 20px;
+  font-size: 20px;
+}
+.prop-desc{
+  padding-right: 10px;
+  width: 90%;
+}
