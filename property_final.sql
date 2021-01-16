@@ -1,4 +1,4 @@
--- drop database miniproject;
+drop database miniproject;
 create database miniproject;
 
 use miniproject;
@@ -96,14 +96,15 @@ insert into owner_contact values (8001,7854126394),
 create table seller(
 					owner_id int primary key,
                     expected_price double,
+                    zip_code long,
 					broker_id int,
                     foreign key(owner_id) references prop_owner(owner_id) on update cascade on delete cascade,
                     foreign key(broker_id) references broker(broker_id) on update cascade on delete cascade
 );
 
-insert into seller values (8001, 800000, 101),
-							  (8002, 5000000 ,103),
-                              (8003, 9000000 ,102);
+insert into seller values (8001, 800000, 422011, 101),
+							  (8002, 5000000 ,411038,103),
+                              (8003, 9000000 ,411025,102);
 
 create table landlord(
 					owner_id int primary key,
@@ -138,28 +139,31 @@ create table residential_property(
 									property_id int primary key,
                                     house_no int,
                                     house_name varchar(20),
+                                    res_address varchar(50),
                                     bhk int,
                                     rate_per_sqft int,
                                     foreign key(property_id) references property(property_id) on update cascade on delete cascade
 );
 
-insert into residential_property values (9001,4005,"Green Clouds",3,6500),
-										(9002,4006,"Rangers",5,7500),
-                                        (9003,4007,"Nagari",2,4500);
+insert into residential_property values (9001,4005,"Green Clouds","Left kolaphuri colony, Vimannagar",3,6500),
+										(9002,4006,"Rangers","Right colony, Bhosari",5,7500),
+                                        (9003,4007,"Nagari","ganagapur colony,Kalyaninagar",2,4500);
                                       
 
 
 create table commercial_property(
 									property_id int primary key,
                                     shop_no int,
+                                    com_address varchar(50),
                                     building_name varchar(20),
+                                    carpet_area int,
                                     rate_per_sqft int,
                                     foreign key(property_id) references property(property_id) on update cascade on delete cascade
 );
 
-insert into commercial_property values (9004,5005,"Lunkad",5600),
-									   (9005,5006,"Skymax",5050),
-									   (9006,5007,"Galaxy",9600);
+insert into commercial_property values (9004,5005,"Left bhusari colony, kothrud depot","Lunkad",1200,5600),
+									   (9005,5006,"Right bhusari colony, kothrud depot","Skymax",2200,5050),
+									   (9006,5007,"Mit back gate, kothrud depot","Galaxy",1500,9600);
                                        
                                         
 create table ammeneties(
@@ -184,7 +188,7 @@ create table services(
 );
 
 insert into services values (9001,"School"),
-						     (9001,"station"),
+						     (9001,"Station"),
                              (9002,"Mall"),
                              (9003,"Airport"),
                              (9004,"IT sector"),
@@ -243,6 +247,7 @@ insert buyer values (3006,850000,"Kothrud",101,203),
 create table tenant(
 					cust_id int primary key,
                     max_rent double,
+                    zip_code long,
                     locality varchar(45),
                     broker_id int,
                     cid int,
@@ -251,9 +256,9 @@ create table tenant(
 					foreign key(cid) references consultant(cid) on update cascade on delete cascade
 );
 
-insert tenant values (3009,18000,"Paud Road",101,204),
-					 (3010,20000,"Baner",103,201),
-					 (3011,22000,"Aundh",103,202);
+insert tenant values (3009,18000,422011,"Paud Road",101,204),
+					 (3010,20000,411038,"Baner",103,201),
+					 (3011,22000,411025,"Aundh",103,202);
 
 alter table property add column cust_id int default null;
 alter table property add foreign key(cust_id) references customer(cust_id) on update cascade on delete cascade;
@@ -319,5 +324,3 @@ begin
 delete from customer where cust_id = old.cust_id;
 delete from cust_contact where cust_id = old.cust_id;
 end$
-
-			
