@@ -10,21 +10,21 @@ if (!$conn) {
 }
 
 if (isset($_POST['submit'])) {
-    $ownerName = $_POST['ownername'];
-    $ownerID = $_POST['userid'];
-    $ownerEmail = $_POST['email'];
-    $ownerContact = $_POST['num'];
-    $propertyID = $_POST['proid'];
+    $ownerName = $_POST['ownerName'];
+    $ownerID = $_POST['ownerID'];
+    $ownerEmail = $_POST['ownerEmail'];
+    $ownerContact = $_POST['ownerContact'];
+    $propertyID = $_POST['propertyID'];
     $location = $_POST['location'];
-    $established_year = $_POST['edate'];
-    $amenities = $_POST['amme'];
-    $close_by_service = $_POST['cbs'];
-    $rate_per_sqft = $_POST['rps'];
-    $PropertyType = $_POST['typeofproperty'];
-    $expectedPrice = $_POST['exp'];
-    $brokerID = $_POST['brokers'];
+    $established_year = $_POST['established_year'];
+    $amenities = $_POST['amenities'];
+    $close_by_service = $_POST['close_by_service'];
+    $rate_per_sqft = $_POST['rate_per_sqft'];
+    $PropertyType = $_POST['PropertyType'];
+    $expectedPrice = $_POST['expectedPrice'];
+    $brokerID = $_POST['brokerID'];
     $zip = $_POST['zip'];
-    $BHK = $_POST['bhk'];
+    $BHK = $_POST['BHK'];
     $building_name = $_POST['building_name'];
     $Carpet_Area = $_POST['Carpet_Area'];
     $res_house_name = $_POST['res_house_name'];
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
     $counter = 0;
 
     $sq3 = "INSERT INTO prop_owner(owner_id,owner_name,email_id,broker_id)
-      VALUES ('$ownerid','$name','$email','$brokerid')";
+      VALUES ('$ownerID','$ownerName','$ownerEmail','$brokerID')";
     if (mysqli_query($conn, $sq3)) {
         // echo "New record has been added successfully !";
         $counter = $counter + 1;
@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
     }
 
     $sq2 = "INSERT INTO owner_contact(owner_id,owner_contact_no)
-      VALUES ('$ownerid','$contact')";
+      VALUES ('$ownerID','$ownerContact')";
     if (mysqli_query($conn, $sq2)) {
         // echo "New record has been added successfully !";
         $counter = $counter + 1;
@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
     }
 
     $sq4 = "INSERT INTO seller(owner_id,expected_price,zip,broker_id)
-      VALUES ('$ownerid','$exp','$brokerid')";
+      VALUES ('$ownerID','$expectedPrice','$zip','$brokerID')";
     if (mysqli_query($conn, $sq4)) {
         // echo "New record has been added successfully !";
         $counter = $counter + 1;
@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
     }
 
     $sql = "INSERT INTO property(property_id,location,established_date,owner_id)
-     	VALUES ('$propid','$location','$edate','$zip','$ownerid')";
+     	VALUES ('$propertyID','$location','$established_year','$zip','$ownerID')";
     if (mysqli_query($conn, $sql)) {
         // echo "New record has been added successfully !";
         $counter = $counter + 1;
@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
     }
 
     $sql1 = "INSERT INTO ammeneties(property_id,ammenities)
-      VALUES ('$propid','$amme')";
+      VALUES ('$propertyID','$amenities')";
     if (mysqli_query($conn, $sql1)) {
         // echo "New record has been added successfully !";
         $counter = $counter + 1;
@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
     }
 
     $sq5 = "INSERT INTO services(property_id,close_by_services)
-      VALUES ('$propid','$cbs')";
+      VALUES ('$propertyID','$close_by_service')";
     if (mysqli_query($conn, $sq5)) {
         // echo "New record has been added successfully !";
         $counter = $counter + 1;
@@ -89,11 +89,8 @@ if (isset($_POST['submit'])) {
     }
 
     if ($top == "residential") {
-        $hname = $_POST['hname'];
-        $hno = $_POST['hno'];
-        $bhk = $_POST['bhk'];
         $sq6 = "INSERT INTO residential_property(property_id,house_no,house_name,res_address,bhk,rate_per_sqft)
-      VALUES ('$propid','$hno','$hname','$bhk','$res_address','$rps')";
+      VALUES ('$propertyID','$res_house_no','$res_house_name','$BHK','$res_address','$rate_per_sqft')";
         if (mysqli_query($conn, $sq6)) {
             // echo "New record has been added successfully !";
             $counter = $counter + 1;
@@ -103,8 +100,8 @@ if (isset($_POST['submit'])) {
     } else {
         $bname = $_POST['bname'];
         $sno = $_POST['sno'];
-        $sq7 = "INSERT INTO commercial_property(property_id,shop_no,com_address,building_name,rate_per_sqft)
-           VALUES ('$propid','$sno','$com_address','$bname','$rps')";
+        $sq7 = "INSERT INTO commercial_property(property_id,shop_no,com_address,building_name,carpet_area,rate_per_sqft)
+           VALUES ('$propertyID','$com_shop_no','$com_address','$building_name','$Carpet_Area','$rate_per_sqft')";
         if (mysqli_query($conn, $sq7)) {
             // echo "New record has been added successfully !";
             $counter = $counter + 1;
@@ -116,7 +113,7 @@ if (isset($_POST['submit'])) {
     if ($counter == 7) {
         echo " <script>
         alert('Successfully Saved');
-        location = 'accounthome.html';
+        location = 'home_login.html';
         </script>";
         // header("Location: accounthome.html");
     }

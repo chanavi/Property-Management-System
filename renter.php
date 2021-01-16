@@ -6,7 +6,7 @@ $password = 'root';
 $dbname = "miniproject";
 $conn = mysqli_connect($servername, $username, $password, "$dbname");
 if (!$conn) {
-    die('Could not Connect MySql Server:' . mysql_error());
+    die('Could not Connect MySql Server:' . mysqli_error($conn));
 }
 
 if (isset($_POST['submit'])) {
@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
 
     if ($top == "residential") {
         $sq6 = "INSERT INTO residential_property(property_id,house_no,house_name,res_address,bhk,rate_per_sqft)
-      VALUES ('$rent_propertyID','$rent_res_house_no','$rent_res_house_name','$BHK','$rent_rate_per_sqft')";
+      VALUES ('$rent_propertyID','$rent_res_house_no','$rent_res_house_name','$rent_res_address','$BHK','$rent_rate_per_sqft')";
         if (mysqli_query($conn, $sq6)) {
             // echo "New record has been added successfully !";
             $counter = $counter + 1;
@@ -100,8 +100,8 @@ if (isset($_POST['submit'])) {
     } else {
         $bname = $_POST['bname'];
         $sno = $_POST['sno'];
-        $sq7 = "INSERT INTO commercial_property(property_id,shop_no,building_name,rate_per_sqft)
-           VALUES ('$rent_propertyID','$rent_com_shop_no','$rent_com_building_name','$rent_rate_per_sqft')";
+        $sq7 = "INSERT INTO commercial_property(property_id,shop_no,com_address,building_name,carpet_area,rate_per_sqft)
+           VALUES ('$rent_propertyID','$rent_com_shop_no','$rent_com_address','$rent_com_building_name','$rent_Carpet_Area','$rent_rate_per_sqft')";
         if (mysqli_query($conn, $sq7)) {
             // echo "New record has been added successfully !";
             $counter = $counter + 1;
@@ -113,7 +113,7 @@ if (isset($_POST['submit'])) {
     if ($counter == 7) {
         echo " <script>
         alert('Successfully Saved');
-        location = 'accounthome.html';
+        location = 'home_login.html';
         </script>";
         // header("Location: accounthome.html");
     }
