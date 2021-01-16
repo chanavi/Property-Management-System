@@ -8,8 +8,10 @@
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.79.0">
   <!-- CDNs -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;500;700&display=swap" rel="stylesheet">
   <!-- stylesheet -->
@@ -24,27 +26,26 @@
       <nav class="navbar navbar-expand-lg navbar-dark  bg-info fixed-top">
         <a class="navbar-brand" href="#">Property Mangement System</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#expandme">
-            <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="expandme">
 
-            <div class="navbar-nav">
-                <div class="btn-group">
-                    <button class="btn"><a href="home_login.html" class="nav-item nav-link">Home</a></button>
-                    <button class="btn"><a href="buy/buy.php" class="nav-item nav-link">Buy</a></button>
-                    <button class="btn"><a href="sell/sell.php" class="nav-item nav-link">Sell</a></button>
-                    <button class="btn"><a href="buy/buy.php" class="nav-item nav-link">Rent In</a></button>
-                    <button class="btn"><a href="sell/sell.php" class="nav-item nav-link">Rent Out</a></button>
-                    <button class="btn"><a href="broker.html" class="nav-item nav-link">Broker</a></button>
-                    <button class="btn"><a href="Property Services/index.html"
-                            class="nav-item nav-link">Services</a></button>
-                    <button class="btn"><a href="About/about_us.html" class="nav-item nav-link">About Us</a></button>
-                    <button class="btn"><a href="Home.html" class="nav-item nav-link">Logout</a></button>
-                </div>
-
+          <div class="navbar-nav">
+            <div class="btn-group">
+              <button class="btn"><a href="home_login.html" class="nav-item nav-link">Home</a></button>
+              <button class="btn"><a href="buy/buy.php" class="nav-item nav-link">Buy</a></button>
+              <button class="btn"><a href="sell/sell.php" class="nav-item nav-link">Sell</a></button>
+              <button class="btn"><a href="buy/buy.php" class="nav-item nav-link">Rent In</a></button>
+              <button class="btn"><a href="sell/sell.php" class="nav-item nav-link">Rent Out</a></button>
+              <button class="btn"><a href="broker.html" class="nav-item nav-link">Broker</a></button>
+              <button class="btn"><a href="Property Services/index.html" class="nav-item nav-link">Services</a></button>
+              <button class="btn"><a href="About/about_us.html" class="nav-item nav-link">About Us</a></button>
+              <button class="btn"><a href="Home.html" class="nav-item nav-link">Logout</a></button>
             </div>
+
+          </div>
         </div>
-    </nav>
+      </nav>
       <img class="header bg-img img-fluid" src="sell-bg.png" alt="">
       <img class="header sm-img img-fluid" src="sell-sm.png" alt="">
       <section>
@@ -80,12 +81,12 @@
 
       <!--  <div class="col-md-7 col-lg-8">-->
       <h4 class="mb-3">Advertisement Details</h4>
-      <form action ="sell.php" class="needs-validation" novalidate>
+      <form action="seller.php" class="needs-validation" novalidate>
         <div class="row g-3">
           <div class="col-12">
             <label for="ownerName" class="form-label">Name</label>
             <!--ownerName-->
-            <input name ="ownerName" type="text" class="form-control" id="ownerName" placeholder="" value="" required>
+            <input name="ownerName" type="text" class="form-control" id="ownerName" placeholder="" value="" required>
             <div class="invalid-feedback">
               Valid name is required.
             </div>
@@ -119,9 +120,9 @@
           </div>
 
           <div class="col-12">
-            <label for="expectedRent" class="form-label">Price</label>
+            <label for="expectedPrice" class="form-label">Expected Price</label>
             <!--expectedRent-->
-            <input name="expectedRent" type="text" class="form-control" id="expectedRent" placeholder="" required>
+            <input name="expectedPrice" type="text" class="form-control" id="expectedPrice" placeholder="" required>
             <div class="invalid-feedback">
               Valid amount is required.
             </div>
@@ -130,7 +131,24 @@
           <div class="col-12">
             <label for="propertyID" class="form-label">Property ID</label>
             <!--propertyID-->
-            <input name="propertyID" type="text" class="form-control" id="propertyID" placeholder="" value="" required>
+            <input name="propertyID" type="text" class="form-control" id="propertyID" required>
+            <div class="invalid-feedback">
+              Valid ID is required.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="established_year" class="form-label">Established Year</label>
+            <input name="established_year" type="text" class="form-control" id="established_year" required>
+            <div class="invalid-feedback">
+              Valid ID is required.
+            </div>
+          </div>
+
+
+          <div class="col-12">
+            <label for="brokerID" class="form-label">Broker ID</label>
+            <input name="brokerID" type="text" class="form-control" id="brokerID" required>
             <div class="invalid-feedback">
               Valid ID is required.
             </div>
@@ -139,7 +157,7 @@
           <div class="col-12">
             <label for="location" class="form-label">City</label>
             <!--location-->
-            <select class="form-select" id="location" required>
+            <select name="location" class="form-select" id="location" required>
               <option value="Select"></option>
               <option value="Ahmedabad">Ahmedabad</option>
               <option value="Bangalore">Bangalore</option>
@@ -186,26 +204,25 @@
             </div>
           </div>
 
-
-
           <div class="col-12">
             <label for="amenities" class="form-label">Amenities</label>
             <!--amenities-->
-            <input name="ameities" type="text" class="form-control" id="amenities" placeholder="" required>
+            <input name="amenities" type="text" class="form-control" id="amenities" placeholder="" required>
           </div>
 
           <div class="col-12">
-            <label for="services" class="form-label">Services</label>
+            <label for="close_by_service" class="form-label">Close By Services</label>
             <!--services-->
-            <input name="services" type="text" class="form-control" id="services" placeholder="" required>
+            <input name="close_by_service" type="text" class="form-control" id="close_by_service" placeholder=""
+              required>
           </div>
 
           <div class="col-12">
-            <label for="propertyType" class="form-label">Type of Property</label>
-            <select class="form-select" id="propertyType" required>
+            <label for="PropertyType" class="form-label">Type of Property</label>
+            <select name="PropertyType" class="form-select" id="PropertyType" required>
               <option value="Select"></option>
-              <option>Residential Property</option>
-              <option>Commercial Property</option>
+              <option value="Residential Property">Residential Property</option>
+              <option value="Commercial Property">Commercial Property</option>
             </select>
           </div>
 
@@ -223,25 +240,26 @@
           <div class="col-md-6">
             <label for="res_house_name" class="form-label">House Name</label>
             <!--house_name-->
-            <input name="house_name" type="text" class="form-control" id="res_house_name" placeholder="Atlantis" required>
+            <input name="house_name" type="text" class="form-control" id="res_house_name" placeholder="Atlantis"
+              required>
           </div>
 
           <div class="col-12">
             <label for="res_address" class="form-label">Address</label>
             <!--res_address-->
-            <input name+"res_address" type="text" class="form-control" id="res_address" placeholder="" required>
+            <input name="res_address" type="text" class="form-control" id="res_address" placeholder="" required>
           </div>
 
           <div class="col-12">
             <label for="rate" class="form-label">Rate per square feet</label>
             <!--rate_per_sqft-->
-            <input name ="rate_per_sqft" type="text" class="form-control" id="rate" placeholder="₹" required>
+            <input name="rate_per_sqft" type="text" class="form-control" id="rate" placeholder="₹" required>
           </div>
 
           <div class="col-12">
             <label for="bhk" class="form-label">BHK</label>
             <!--bhk-->
-            <select class="form-select" id="bhk" required>
+            <select name="BHK" class="form-select" id="bhk" required>
               <option value="Select"></option>
               <option value="1BHK">1BHK</option>
               <option value="2BHK">2BHK</option>
@@ -266,7 +284,8 @@
           <div class="col-12">
             <label for="com_building_name" class="form-label">Building Name</label>
             <!--building_name-->
-            <input name="building_name" type="text" class="form-control" id="com_building_name" placeholder="Atlantis" required>
+            <input name="building_name" type="text" class="form-control" id="com_building_name" placeholder="Atlantis"
+              required>
           </div>
 
           <div class="col-12">
@@ -276,15 +295,15 @@
           </div>
 
           <div class="col-12">
-            <label for="rate" class="form-label">Square Feet</label>
+            <label for="Carpet_Area" class="form-label">Carpet Area</label>
             <!--sqft-->
-            <input name="sqft" type="text" class="form-control" id="rate" placeholder="₹" required>
+            <input name="Carpet_Area" type="text" class="form-control" id="Carpet_Area" placeholder="₹" required>
           </div>
 
           <div class="col-12">
-            <label for="rate" class="form-label">Rate per square feet</label>
+            <label for="rent_rate" class="form-label">Rate per square feet</label>
             <!--rate_per_sqft-->
-            <input name="rate_per_sqft" type="text" class="form-control" id="rate" placeholder="₹" required>
+            <input name="rent_rate_per_sqft" type="text" class="form-control" id="rent_rate" placeholder="₹" required>
           </div>
 
           <hr class="my-4">
@@ -359,12 +378,12 @@
     <div id="section-3" class="container invisible">
       <div class="py-5 text-center"> -->
 
-        <!--  <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-        <h2>Post an Advertisement</h2>
-        <p class="lead">Have extra space? Rent out at best prices.</p>
-      </div>
+          <!--  <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+          <h2>Post an Advertisement</h2>
+          <p class="lead">Have extra space? Rent out at best prices.</p>
+        </div>
 
-      <!-- <div class="row g-3">
+        <!-- <div class="row g-3">
         <div class="col-md-5 col-lg-4 order-md-last">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
 
@@ -373,218 +392,243 @@
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-sm">-->
 
-      <!--  <div class="col-md-7 col-lg-8">-->
-      <h4 class="mb-3">Advertisement Details</h4>
-      <form class="needs-validation" novalidate>
-        <div class="row g-3">
-          <div class="col-12">
-            <label for="rent_ownerName" class="form-label">Name</label>
-            <!--ownerName-->
-            <input name="rent_ownerName" type="text" class="form-control" id="rent_ownerName" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Valid name is required.
+        <!--  <div class="col-md-7 col-lg-8">-->
+        <h4 class="mb-3">Advertisement Details</h4>
+        <form class="renter.php" novalidate>
+          <div class="row g-3">
+            <div class="col-12">
+              <label for="rent_ownerName" class="form-label">Name</label>
+              <!--ownerName-->
+              <input name="rent_ownerName" type="text" class="form-control" id="rent_ownerName" placeholder="" value=""
+                required>
+              <div class="invalid-feedback">
+                Valid name is required.
+              </div>
             </div>
-          </div>
 
-          <div class="col-12">
-            <label for="rent_ownerID" class="form-label">Owner ID</label>
-            <!--ownerID-->
-            <input name="rent_ownerID" type="text" class="form-control" id="rent_ownerID" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Valid ID is required.
+            <div class="col-12">
+              <label for="rent_ownerID" class="form-label">Owner ID</label>
+              <!--ownerID-->
+              <input name="rent_ownerID" type="text" class="form-control" id="rent_ownerID" placeholder="" value=""
+                required>
+              <div class="invalid-feedback">
+                Valid ID is required.
+              </div>
             </div>
-          </div>
 
-          <div class="col-12">
-            <label for="rent_contact" class="form-label">Contact Number</label>
-            <!--ownerContact-->
-            <input name="rent_Contact" type="text" class="form-control" id="rent_contact" placeholder="" required>
-            <div class="invalid-feedback">
-              Valid contact number is required.
+            <div class="col-12">
+              <label for="rent_contact" class="form-label">Contact Number</label>
+              <!--ownerContact-->
+              <input name="rent_Contact" type="text" class="form-control" id="rent_contact" placeholder="" required>
+              <div class="invalid-feedback">
+                Valid contact number is required.
+              </div>
             </div>
-          </div>
 
-          <div class="col-12">
-            <label for="rent_email" class="form-label">Email </label>
-            <!--ownerEmail-->
-            <input name="rent_ownerEmail" type="email" class="form-control" id="rent_email" placeholder="you@example.com">
-            <div class="invalid-feedback">
-              Please enter a valid email address.
+            <div class="col-12">
+              <label for="rent_email" class="form-label">Email </label>
+              <!--ownerEmail-->
+              <input name="rent_ownerEmail" type="email" class="form-control" id="rent_email"
+                placeholder="you@example.com">
+              <div class="invalid-feedback">
+                Please enter a valid email address.
+              </div>
             </div>
-          </div>
 
-          <div class="col-12">
-            <label for="rent_expectedRent" class="form-label">Price</label>
-            <!--expectedRent-->
-            <input name="rent_expectedRent" type="text" class="form-control" id="rent_expectedRent" placeholder="" required>
-            <div class="invalid-feedback">
-              Valid amount is required.
+            <div class="col-12">
+              <label for="rent_expectedRent" class="form-label">Price</label>
+              <!--expectedRent-->
+              <input name="rent_expectedRent" type="text" class="form-control" id="rent_expectedRent" placeholder=""
+                required>
+              <div class="invalid-feedback">
+                Valid amount is required.
+              </div>
             </div>
-          </div>
 
-          <div class="col-12">
-            <label for="rent_propertyID" class="form-label">Property ID</label>
-            <!--propertyID-->
-            <input name="rent_propertyID" type="text" class="form-control" id="rent_propertyID" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Valid ID is required.
+            <div class="col-12">
+              <label for="rent_propertyID" class="form-label">Property ID</label>
+              <!--propertyID-->
+              <input name="rent_propertyID" type="text" class="form-control" id="rent_propertyID" placeholder=""
+                value="" required>
+              <div class="invalid-feedback">
+                Valid ID is required.
+              </div>
             </div>
-          </div>
 
-          <div class="col-12">
-            <label for="rent_location" class="form-label">City</label>
-            <!--location-->
-            <select class="form-select" id="rent_location" required>
-              <option value="Select"></option>
-              <option value="Ahmedabad">Ahmedabad</option>
-              <option value="Bangalore">Bangalore</option>
-              <option value="Chennai">Chennai</option>
-              <option value="Delhi">Delhi</option>
-              <option value="Hyderabad">Hyderabad</option>
-              <option value="Jaipur">Jaipur</option>
-              <option value="Jamshedpur">Jamshedpur</option>
-              <option value="Kanpur">Kanpur</option>
-              <option value="Kolkata">Kolkata</option>
-              <option value="Mumbai">Mumbai</option>
-              <option value="Nagpur">Nagpur</option>
-              <option value="Pune">Pune</option>
-              <option value="Surat">Surat</option>
-              <option value="Vishakhapatnam">Vishakhapatnam</option>
-            </select>
-          </div>
-
-          <div class="col-md-4">
-            <label for="state" class="form-label">State</label>
-            <select class="form-select" id="state" required>
-              <option value="Select"></option>
-              <option value="Andhra Pradesh">Andhra Pradesh</option>
-              <option value="Delhi">Delhi</option>
-              <option value="Gujrat">Gujrat</option>
-              <option value="Jharkhand">Jharkhand</option>
-              <option value="Karnataka">Karnataka</option>
-              <option value="Maharashtra">Maharashtra</option>
-              <option value="Rajasthan">Rajasthan</option>
-              <option value="Tamil Nadu">Tamil Nadu</option>
-              <option value="Telangana">Telangana</option>
-              <option value="Uttar Pradesh">Uttar Pradesh</option>
-            </select>
-            <div class="invalid-feedback">
-              Please provide a valid state.
+            <div class="col-12">
+              <label for="rent_location" class="form-label">City</label>
+              <!--location-->
+              <select class="form-select" id="rent_location" required>
+                <option value="Select"></option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Jamshedpur">Jamshedpur</option>
+                <option value="Kanpur">Kanpur</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Nagpur">Nagpur</option>
+                <option value="Pune">Pune</option>
+                <option value="Surat">Surat</option>
+                <option value="Vishakhapatnam">Vishakhapatnam</option>
+              </select>
             </div>
-          </div>
 
-          <div class="col-md-3">
-            <label for="rent_zip" class="form-label">Zip</label>
-            <input name="rent_zip" type="text" class="form-control" id="rent_zip" placeholder="" required>
-            <div class="invalid-feedback">
-              Zip code required.
+            <div class="col-md-4">
+              <label for="state" class="form-label">State</label>
+              <select class="form-select" id="state" required>
+                <option value="Select"></option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Gujrat">Gujrat</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid state.
+              </div>
             </div>
-          </div>
+
+            <div class="col-md-3">
+              <label for="rent_zip" class="form-label">Zip</label>
+              <input name="rent_zip" type="text" class="form-control" id="rent_zip" placeholder="" required>
+              <div class="invalid-feedback">
+                Zip code required.
+              </div>
+            </div>
 
 
 
-          <div class="col-12">
-            <label for="rent_amenities" class="form-label">Amenities</label>
-            <!--amenities-->
-            <input name="rent_amenities" type="text" class="form-control" id="rent_amenities" placeholder="" required>
-          </div>
+            <div class="col-12">
+              <label for="rent_amenities" class="form-label">Amenities</label>
+              <!--amenities-->
+              <input name="rent_amenities" type="text" class="form-control" id="rent_amenities" placeholder="" required>
+            </div>
 
-          <div class="col-12">
-            <label for="rent_services" class="form-label">Services</label>
-            <!--services-->
-            <input name="rent_services" type="text" class="form-control" id="rent_services" placeholder="" required>
-          </div>
+            <div class="col-12">
+              <label for="rent_services" class="form-label">Services</label>
+              <!--services-->
+              <input name="rent_services" type="text" class="form-control" id="rent_services" placeholder="" required>
+            </div>
 
-          <div class="col-12">
-            <label for="propertyType" class="form-label">Type of Property</label>
-            <select class="form-select" id="propertyType" required>
-              <option value="Select"></option>
-              <option>Residential Property</option>
-              <option>Commercial Property</option>
-            </select>
-          </div>
+            <div class="col-12">
+              <label for="rent_PropertyType" class="form-label">Type of Property</label>
+              <select name="rent_PropertyType" class="form-select" id="rent_PropertyType" required>
+                <option value="Select"></option>
+                <option value="Residential Property">Residential Property</option>
+                <option value="Commercial Property">Commercial Property</option>
+              </select>
+            </div>
 
-          <!--Residential Property-->
-          <hr class="my-4">
-          <h5 class="mb-10">Residential Property</h5>
-          <hr class="my-4">
+            <!--Residential Property-->
+            <hr class="my-4">
+            <h5 class="mb-10">Residential Property</h5>
+            <hr class="my-4">
 
-          <div class="col-md-6">
-            <label for="rent_res_house_no" class="form-label">House Number</label>
-            <!--house_no-->
-            <input name="rent_res_house_no" type="text" class="form-control" id="rent_res_house_no" placeholder="A-1045" required>
-          </div>
+            <div class="col-md-6">
+              <label for="rent_res_house_no" class="form-label">House Number</label>
+              <!--house_no-->
+              <input name="rent_res_house_no" type="text" class="form-control" id="rent_res_house_no"
+                placeholder="A-1045" required>
+            </div>
 
-          <div class="col-md-6">
-            <label for="rent_res_house_name" class="form-label">House Name</label>
-            <!--house_name-->
-            <input name="rent_res_house_name" type="text" class="form-control" id="rent_res_house_name" placeholder="Atlantis" required>
-          </div>
+            <div class="col-md-6">
+              <label for="rent_res_house_name" class="form-label">House Name</label>
+              <!--house_name-->
+              <input name="rent_res_house_name" type="text" class="form-control" id="rent_res_house_name"
+                placeholder="Atlantis" required>
+            </div>
 
-          <div class="col-12">
-            <label for="rent_address" class="form-label">Address</label>
-            <!--fake space-->
-            <input name="rent_res_address" type="text" class="form-control" id="rent_address" placeholder="" required>
-          </div>
+            <div class="col-12">
+              <label for="rent_address" class="form-label">Address</label>
+              <!--fake space-->
+              <input name="rent_res_address" type="text" class="form-control" id="rent_address" placeholder="" required>
+            </div>
 
-          <div class="col-12">
-            <label for="rent_rate" class="form-label">Rate per square feet</label>
-            <!--rate_per_sqft-->
-            <input name="rent_rate" type="text" class="form-control" id="rent_rate" placeholder="₹" required>
-          </div>
+            <div class="col-12">
+              <label for="rent_rate" class="form-label">Rate per square feet</label>
+              <!--rate_per_sqft-->
+              <input name="rent_rate" type="text" class="form-control" id="rent_rate" placeholder="₹" required>
+            </div>
 
-          <div class="col-12">
-            <label for="rent_bhk" class="form-label">BHK</label>
-            <!--bhk-->
-            <select class="form-select" id="rent_bhk" required>
-              <option value="Select"></option>
-              <option value="1BHK">1BHK</option>
-              <option value="2BHK">2BHK</option>
-              <option value="3BHK">3BHK</option>
-              <option value="4BHK">4BHK</option>
-              <option value="5BHK">5BHK</option>
-            </select>
-          </div>
+            <div class="col-12">
+              <label for="rent_bhk" class="form-label">BHK</label>
+              <!--bhk-->
+              <select name="BHK" class="form-select" id="rent_bhk" required>
+                <option value="Select"></option>
+                <option value="1BHK">1BHK</option>
+                <option value="2BHK">2BHK</option>
+                <option value="3BHK">3BHK</option>
+                <option value="4BHK">4BHK</option>
+                <option value="5BHK">5BHK</option>
+              </select>
+            </div>
 
-          <!--Commercial Property-->
-          <hr class="my-4">
-          <h5 class="mb-10">Commercial Property</h5>
-          <hr class="my-4">
-
-
-          <div class="col-12" id="com">
-            <label for="rent_com_shop_no" class="form-label">Shop Number</label>
-            <!--shop_no-->
-            <input name="rent_com_shop_no" type="text" class="form-control" id="rent_com_shop_no" placeholder="1045" required>
-          </div>
-
-          <div class="col-12">
-            <label for="rent_com_building_name" class="form-label">Building Name</label>
-            <!--building_name-->
-            <input name="rent_com_building_name" type="text" class="form-control" id="rent_com_building_name" placeholder="Atlantis" required>
-          </div>
-
-          <div class="col-12">
-            <label for="rent_com_address" class="form-label">Address</label>
-            <!--fake space-->
-            <input name="rent_com_address" type="text" class="form-control" id="rent_com_address" placeholder="" required>
-          </div>
-
-          <div class="col-12">
-            <label for="rent_comm_rate" class="form-label">Rate per square feet</label>
-            <!--rate_per_sqft-->
-            <input name="rent_com_rent" type="text" class="form-control" id="rent_comm_rate" placeholder="₹" required>
-          </div>
-
-          <hr class="my-4">
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="tc">
-            <label class="form-check-label" for="tc">I have read and agree to the terms & conditions</label>
-          </div>
+            <!--Commercial Property-->
+            <hr class="my-4">
+            <h5 class="mb-10">Commercial Property</h5>
+            <hr class="my-4">
 
 
-        <!--  <hr class="my-3">
+            <div class="col-12" id="com">
+              <label for="rent_com_shop_no" class="form-label">Shop Number</label>
+              <!--shop_no-->
+              <input name="rent_com_shop_no" type="text" class="form-control" id="rent_com_shop_no" placeholder="1045"
+                required>
+            </div>
+
+            <div class="col-12">
+              <label for="rent_com_building_name" class="form-label">Building Name</label>
+              <!--building_name-->
+              <input name="rent_com_building_name" type="text" class="form-control" id="rent_com_building_name"
+                placeholder="Atlantis" required>
+            </div>
+
+            <div class="col-12">
+              <label for="rent_com_address" class="form-label">Address</label>
+              <!--fake space-->
+              <input name="rent_com_address" type="text" class="form-control" id="rent_com_address" placeholder=""
+                required>
+            </div>
+
+            <div class="col-12">
+              <label for="rent_Carpet_Area" class="form-label">Carpet Area</label>
+              <!--sqft-->
+              <input name="rent_Carpet_Area" type="text" class="form-control" id="rent_Carpet_Area" placeholder="₹"
+                required>
+            </div>
+
+            <div class="col-12">
+              <label for="rent_comm_rate" class="form-label">Rate per square feet</label>
+              <!--rate_per_sqft-->
+              <input name="rent_com_rent" type="text" class="form-control" id="rent_comm_rate" placeholder="₹" required>
+            </div>
+
+            <div class="col-12">
+              <label for="rent_brokerID" class="form-label">Broker ID</label>
+              <input name="rent_brokerID" type="text" class="form-control" id="rent_brokerID" required>
+              <div class="invalid-feedback">
+                Valid ID is required.
+              </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="tc">
+              <label class="form-check-label" for="tc">I have read and agree to the terms & conditions</label>
+            </div>
+
+
+            <!--  <hr class="my-3">
 
           <h4 class="mb-3">Payment to post Advertisement</h4>
 
@@ -640,9 +684,9 @@
 
           <hr class="my-4"> -->
 
-          <button class="btn-dark" type="submit">Post Ad</button>
-        </div>
-      </form>
+            <button class="btn-dark" type="submit">Post Ad</button>
+          </div>
+        </form>
     </div>
 
   </main>
