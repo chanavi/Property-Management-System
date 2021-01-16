@@ -9,6 +9,10 @@ p {
 	font-size: 13px;
 	line-height: 26px;
 }
+li {
+	font-size: 13px;
+	line-height: 20px;
+}
 
 a {
 	color: #ff6;
@@ -26,7 +30,8 @@ ul {
 }
 
 .primary-button a {
-  display: inline-block;
+  display: inline-flex;
+  align-self: center;
   background-color: #078349;;
   color: #fff;
   letter-spacing: 1px;
@@ -314,15 +319,17 @@ ul {
 */
 
 .home-content {
-	height:110vh;
+  height:110vh;
+  width: 86vh;
 	background-color: rgba(5, 100, 119, 0.5);
 	padding: 0px 30px;
 	position: relative;
-	margin: 10vh auto 0 auto;
+  margin: 10vh auto 0 auto;
+  margin-right: 10cm;
 }
 /* 4B6E46 */
 .home-content h1 {
-	padding-top: 120px;
+	padding-top: 90px;
 	font-size: 32px;
 	text-transform: uppercase;
 	color: #fff;
@@ -377,15 +384,11 @@ ul {
 .home-content .right-image {
 	float: right;
 }
-
-
-
 /*
 ========================
 ------ ABOUT STYLE -----
 ========================
 */
-
 .about-content {
   height: 100vh;
   width: 86vh;
@@ -397,7 +400,7 @@ ul {
 }
 
 .about-content .heading {
-  padding-top: 40%;
+  padding-top: 25%;
 }
 
 .about-box-content {
@@ -413,7 +416,7 @@ ul {
 
 .about-content .about-box-text {
   background-color: #fff;
-  padding: 30px;
+  padding: 5px;
   margin-top: 60px;
 }
 
@@ -454,14 +457,15 @@ ul {
 
 .projects-content {
   height: 100vh;
+  width: 86vh;
   background-color: rgba(5, 100, 119, 0.5);
   padding: 0px 60px;
   position: relative;
-  margin: 0 auto;
+  margin-right: 10cm;
 }
 
 .projects-content .heading {
-  padding-top: 30%;
+  padding-top: 25%;
 }
 
 .project-item {
@@ -507,10 +511,6 @@ ul {
   -o-transition: all 0.2s linear;
   -webkit-transition: all 0.2s linear;
 }
-
-
-
-
 /*
 ========================
 ---- CONTACT STYLE -----
@@ -525,11 +525,11 @@ ul {
   position: relative;
   margin: 0 auto;
   align-self: center;
-  margin-right: 5cm;
+  margin-right: 4.70cm;
 }
 
 .contact-content .heading {
-  padding-top: 35%;
+  padding-top: 15%;
 }
 
 .contact-content .contat-form {
