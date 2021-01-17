@@ -26,29 +26,26 @@
 
       <header>
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-        <a class="navbar-brand" href="#">Property Mangement System</a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#expandme">
+          <a class="navbar-brand" href="#">Property Mangement System</a>
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#expandme">
             <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="expandme">
-
+          </button>
+          <div class="collapse navbar-collapse" id="expandme">
             <div class="navbar-nav">
-                <div class="btn-group">
-                    <button class="btn"><a href="home_login.html" class="nav-item nav-link">Home</a></button>
-                    <button class="btn"><a href="buy.php" class="nav-item nav-link">Buy</a></button>
-                    <button class="btn"><a href="sell.php" class="nav-item nav-link">Sell</a></button>
-                    <button class="btn"><a href="buy.php" class="nav-item nav-link">Rent In</a></button>
-                    <button class="btn"><a href="sell.php" class="nav-item nav-link">Rent Out</a></button>
-                    <button class="btn"><a href="broker.html" class="nav-item nav-link">Broker</a></button>
-                    <button class="btn"><a href="Property Services/property_services.html"
-                            class="nav-item nav-link">Services</a></button>
-                    <button class="btn"><a href="about_us.html" class="nav-item nav-link">About Us</a></button>
-                    <button class="btn"><a href="Home.html" class="nav-item nav-link">Logout</a></button>
-                </div>
-
+              <div class="btn-group">
+                <button class="btn"><a href="home_login.html" class="nav-item nav-link">Home</a></button>
+                <button class="btn"><a href="buy.php" class="nav-item nav-link active">Buy</a></button>
+                <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Sell</a></button>
+                <button class="btn"><a href="buy.php" class="nav-item nav-link">Rent In</a></button>
+                <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Rent Out</a></button>
+                <button class="btn"><a href="broker.html" class="nav-item nav-link">Broker</a></button>
+                <button class="btn"><a href="Property Services/property_services.html" class="nav-item nav-link">Services</a></button>
+                <button class="btn"><a href="about_us.html" class="nav-item nav-link">About Us</a></button>
+                <button class="btn"><a href="Home.html" class="nav-item nav-link">Logout</a></button>
+              </div>
             </div>
-        </div>
-    </nav>
+          </div>
+        </nav>
       </header>
 
       <img class="header bg-img img-fluid" src="images/bg-buy.png" alt="">
@@ -82,7 +79,7 @@
 
         <div id="box-prop" class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 g-3">
 
-        <?php
+          <?php
     		$conn = mysqli_connect("localhost:3307", "root", "", "miniproject");
     // Check connection
     		if ($conn->connect_error) {
@@ -260,89 +257,94 @@
 
     		$conn->close();
     		?>
-      </div>
+        </div>
   </main>
 
-<!-- Site footer -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-6">
-        <h6>About</h6>
-        <p class="text-justify">Dunkirk Corp. is a newly established upbeat real estate agency with
-          connections PAN India. We handle all types of properties, including houses, condos,
-          villas,townhomes, land, and more. We handle sales and rentals to meet all lifestyle needs,
-          including vacation homes, waterfront, island, ski, golf, farm, ranch and many others.
-          Contact a Dunkirk brand agent today to sell your property, or find a
-          new home, around the world.</p>
+  <!-- Site footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6>About</h6>
+          <p class="text-justify">Dunkirk Corp. is a newly established upbeat real estate agency with
+            connections PAN India. We handle all types of properties, including houses, condos,
+            villas,townhomes, land, and more. We handle sales and rentals to meet all lifestyle needs,
+            including vacation homes, waterfront, island, ski, golf, farm, ranch and many others.
+            Contact a Dunkirk brand agent today to sell your property, or find a
+            new home, around the world.</p>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <h6>Categories</h6>
+          <ul class="footer-links">
+            <li>
+              <a href="https: //www.investopedia.com/terms/r/realestate.asp">Understand what we do.</a>
+            </li>
+            <li>
+              <a href="https: //www.thebalance.com/real-estate-what-it-is-and-how-it-works-3305882">
+                Why invest in real estate?</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <h6>Quick Links</h6>
+          <ul class="footer-links">
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">Buy</a>
+            </li>
+            <li>
+              <a href="#">Loan</a>
+            </li>
+            <li>
+              <a href="#">Property Services</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="col-xs-6 col-md-3">
-        <h6>Categories</h6>
-        <ul class="footer-links">
-          <li>
-            <a href="https: //www.investopedia.com/terms/r/realestate.asp">Understand what we do.</a>
-          </li>
-          <li>
-            <a href="https: //www.thebalance.com/real-estate-what-it-is-and-how-it-works-3305882">
-              Why invest in real estate?</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-xs-6 col-md-3">
-        <h6>Quick Links</h6>
-        <ul class="footer-links">
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">Buy</a>
-          </li>
-          <li>
-            <a href="#">Loan</a>
-          </li>
-          <li>
-            <a href="#">Property Services</a>
-          </li>
-        </ul>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
+            <a href="#">Dunkirk Corp</a>.
+          </p>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li>
+              <a class="facebook" href="#">
+                <iclass="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a class="twitter" href="#">
+                <iclass="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a class="dribbble" href="#">
+                <iclass="fa fa-dribbble"></i>
+              </a>
+            </li>
+            <li>
+              <a class="linkedin" href="#">
+                <iclass="fa fa-linkedin"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-    <hr>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-sm-6 col-xs-12">
-        <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
-          <a href="#">Dunkirk Corp</a>.
-        </p>
-      </div>
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <ul class="social-icons">
-          <li>
-            <a class="facebook" href="#">
-              <iclass="fa fa-facebook"></i></a>
-          </li>
-          <li>
-            <a class="twitter" href="#">
-              <iclass="fa fa-twitter"></i></a>
-          </li>
-          <li>
-            <a class="dribbble" href="#">
-              <iclass="fa fa-dribbble"></i></a>
-          </li>
-          <li>
-            <a class="linkedin" href="#">
-              <iclass="fa fa-linkedin"></i></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- / Footer -->
+  </footer>
+  <!-- / Footer -->
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="buy.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="Buy.js"></script>
 </body>
+
 </html>
