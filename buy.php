@@ -35,14 +35,14 @@
             <div class="navbar-nav">
                 <div class="btn-group">
                     <button class="btn"><a href="home_login.html" class="nav-item nav-link">Home</a></button>
-                    <button class="btn"><a href="buy/buy.php" class="nav-item nav-link">Buy</a></button>
-                    <button class="btn"><a href="sell/sell.php" class="nav-item nav-link">Sell</a></button>
-                    <button class="btn"><a href="buy/buy.php" class="nav-item nav-link">Rent In</a></button>
-                    <button class="btn"><a href="sell/sell.php" class="nav-item nav-link">Rent Out</a></button>
+                    <button class="btn"><a href="buy.php" class="nav-item nav-link">Buy</a></button>
+                    <button class="btn"><a href="sell.php" class="nav-item nav-link">Sell</a></button>
+                    <button class="btn"><a href="buy.php" class="nav-item nav-link">Rent In</a></button>
+                    <button class="btn"><a href="sell.php" class="nav-item nav-link">Rent Out</a></button>
                     <button class="btn"><a href="broker.html" class="nav-item nav-link">Broker</a></button>
-                    <button class="btn"><a href="Property Services/index.html"
+                    <button class="btn"><a href="Property Services/property_services.html"
                             class="nav-item nav-link">Services</a></button>
-                    <button class="btn"><a href="About/about_us.html" class="nav-item nav-link">About Us</a></button>
+                    <button class="btn"><a href="about_us.html" class="nav-item nav-link">About Us</a></button>
                     <button class="btn"><a href="Home.html" class="nav-item nav-link">Logout</a></button>
                 </div>
 
@@ -106,6 +106,7 @@
     				$row = $result->fetch_assoc();
             if($result->num_rows > 0){
               $cr="Residential";
+              $prop_name=$row["house_name"];
             }
 
     				$sql5 = "SELECT * FROM commercial_property where property_id = $pro";
@@ -113,6 +114,7 @@
     				$row5 = $result5->fetch_assoc();
             if($result2->num_rows > 0){
               $cr="Commercial";
+              $prop_name=$row5["building_name"];
             }
 
     				$sql1 = "SELECT * FROM ammeneties where property_id = $pro ";
@@ -134,7 +136,7 @@
                   </svg>
 
                   <div class='card-body v_details'>
-                    <h5 class='card-title'>". $row["house_name"]."</h5>
+                    <h5 class='card-title'>".$prop_name."</h5>
                     <div class='view_details d-flex justify-content-between align-items-center'>
                       <div class='btn-group'>
                         <button type='button' class='btn btn-sm btn-outline-dark vdetails' onclick='viewdetails()'>View Details</button>
@@ -142,7 +144,7 @@
                       <div class='btn-group filters'>
                         <button type='button' class='btn btn-sm btn-dark fil location' onclick='filterStart()'>".$row2["location"]."</button>
                         <button type='button' class='btn btn-sm btn-dark fil c-r' onclick='filterStart()'>".$cr."</button>
-                        <button type='button' class='btn btn-sm btn-dark fil invisible'>rent</button>
+                        <button type='button' class='btn btn-sm btn-dark fil buyselltag invisible'>rent</button>
                       </div>
                     </div>
                   </div>
@@ -207,10 +209,12 @@
     				if ($result->num_rows > 0){
     				$cr="Residential";
             $rps= $row["rate_per_sqft"];
+            $prop_name=$row["house_name"];
     			}
     			else if($result5->num_rows > 0){
     				$cr="Commercial";
             $rps=$row5["rate_per_sqft"];
+            $prop_name=$row5["building_name"];
     			}
 
           echo"<div id='".$pro."'class='col buy invisible'>
@@ -218,7 +222,7 @@
                 <svg class='bd-placeholder-img card-img-top img-fluid' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Placeholder: Thumbnail' preserveAspectRatio='xMidYMid slice' focusable='false' style='background-image:url(apt_images/".$pro."-img1.jpg);'>
                 </svg>
                 <div class='card-body v_details'>
-                  <h5 class='card-title'>". $row["house_name"]."</h5>
+                  <h5 class='card-title'>".$prop_name."</h5>
                   <div class='view_details d-flex justify-content-between align-items-center'>
                     <div class='btn-group'>
                       <button type='button' class='btn btn-sm btn-outline-dark vdetails' onclick='viewdetails()'>View Details</button>
@@ -226,7 +230,7 @@
                     <div class='btn-group filters'>
                       <button type='button' class='btn btn-sm btn-dark fil location' onclick='filterStart()'>".$row2["location"]."</button>
                       <button type='button' class='btn btn-sm btn-dark fil c-r' onclick='filterStart()'>".$cr."</button>
-                      <button type='button' class='btn btn-sm btn-dark fil invisible'>buy</button>
+                      <button type='button' class='btn btn-sm btn-dark fil buyselltag invisible'>buy</button>
                     </div>
                   </div>
                 </div>
