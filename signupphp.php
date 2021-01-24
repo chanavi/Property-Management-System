@@ -1,9 +1,5 @@
 <?php
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = "miniproject";
-$conn = mysqli_connect($servername, $username, $password, "$dbname");
+$conn = mysqli_connect("localhost:3307", "root", "", "miniproject");
 if (!$conn) {
     die('Could not Connect MySql Server:' . mysqli_error($conn));
 }

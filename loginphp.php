@@ -1,9 +1,5 @@
 <?php
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = "miniproject";
-$conn = mysqli_connect($servername, $username, $password, "$dbname");
+$conn = mysqli_connect("localhost:3307", "root", "", "miniproject");
 if (!$conn) {
     die('Could not Connect MySql Server:' . mysqli_error($conn));
 }
@@ -15,7 +11,7 @@ if (isset($_POST['emailid'])) {
     // $sql = "INSERT INTO StudentLogin(emailid,password)
     // VALUES ('$emailid','$password')";
 
-    $query = "SELECT * FROM maintable WHERE email_id='$emailid' 
+    $query = "SELECT * FROM maintable WHERE email_id='$emailid'
                AND password='$password'";
 
     // if (mysqli_query($conn, $sql)) {

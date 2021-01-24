@@ -13,6 +13,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+  <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Arapey&family=Josefin+Slab:wght@500&family=Neucha&family=Raleway:wght@500;600&display=swap" rel="stylesheet">
   <!-- stylesheet -->
   <link rel="stylesheet" href="buy.css">
   <link rel="stylesheet" href="buy_media.css">
@@ -39,7 +47,7 @@
                 <button class="btn"><a href="buy.php" class="nav-item nav-link">Rent In</a></button>
                 <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Rent Out</a></button>
                 <button class="btn"><a href="broker.html" class="nav-item nav-link">Broker</a></button>
-                <button class="btn"><a href="Property Services/property_services.html" class="nav-item nav-link">Services</a></button>
+                <button class="btn"><a href="property_services.html" class="nav-item nav-link">Services</a></button>
                 <button class="btn"><a href="about_us.html" class="nav-item nav-link">About Us</a></button>
                 <button class="btn"><a href="Home.html" class="nav-item nav-link">Logout</a></button>
               </div>
@@ -55,8 +63,8 @@
         <div class="row">
           <div class=".col-6 mx-auto">
             <p class="main-btns">
-              <a href="#prop" onclick="buyProp()" class="mainbtn btn btn-dark btn-lg my-2">Buy</a>
-              <a href="#prop" onclick="rentProp()" class="mainbtn btn btn-outline-dark btn-lg my-2">Rent In</a>
+              <a href="#prop" class="mainbtn btn btn-dark btn-lg my-2" onclick="buyProp();">Buy</a>
+              <a href="#prop" class="mainbtn btn btn-outline-dark btn-lg my-2" onclick="rentProp();">Rent In</a>
             </p>
           </div>
         </div>
@@ -69,6 +77,36 @@
         <h1 id="heading" class="fw-light"></h1>
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Enter a location">
+          <script type="text/javascript">
+          function buyProp() {
+            buySell = "buy";
+            clear();
+            document.getElementById("prop").classList.remove("invisible");
+            document.getElementById("heading").innerHTML = "Properties on Sale";
+            var len = document.getElementsByClassName("buy").length;
+            for (var k = 0; k < len; k++) {
+              document.getElementsByClassName("buy")[k].classList.remove("invisible");
+            }
+          }
+
+          function rentProp() {
+            clear();
+            buySell = "rent";
+            document.getElementById("prop").classList.remove("invisible");
+            document.getElementById("heading").innerHTML = "Properties on Rent";
+            var len = document.getElementsByClassName("rent").length;
+            for (var k = 0; k < len; k++) {
+              document.getElementsByClassName("rent")[k].classList.remove("invisible");
+            }
+          }
+
+          function clear() {
+            var lenght = document.getElementById("box-prop").children.length;
+            for (var k = lenght - 1; k >= 0; k--) {
+              document.getElementById("box-prop").children[k].classList.add("invisible");
+            }
+          }
+          </script>
           <button class="btn btn-dark invisible" type="button" id="button-addon1" onclick="clearLocation();">X</button>
           <button class="btn btn-outline-dark" type="button" id="button-addon2" onclick="locate();">Search</button>
         </div>
@@ -206,12 +244,12 @@
     				if ($result->num_rows > 0){
     				$cr="Residential";
             $rps= $row["rate_per_sqft"];
-            $prop_name=$row["house_name"];
+            $prop_name2=$row["house_name"];
     			}
     			else if($result5->num_rows > 0){
     				$cr="Commercial";
             $rps=$row5["rate_per_sqft"];
-            $prop_name=$row5["building_name"];
+            $prop_name2=$row5["building_name"];
     			}
 
           echo"<div id='".$pro."'class='col buy invisible'>
@@ -219,7 +257,7 @@
                 <svg class='bd-placeholder-img card-img-top img-fluid' xmlns='http://www.w3.org/2000/svg' role='img' aria-label='Placeholder: Thumbnail' preserveAspectRatio='xMidYMid slice' focusable='false' style='background-image:url(apt_images/".$pro."-img1.jpg);'>
                 </svg>
                 <div class='card-body v_details'>
-                  <h5 class='card-title'>".$prop_name."</h5>
+                  <h5 class='card-title'>".$prop_name2."</h5>
                   <div class='view_details d-flex justify-content-between align-items-center'>
                     <div class='btn-group'>
                       <button type='button' class='btn btn-sm btn-outline-dark vdetails' onclick='viewdetails()'>View Details</button>
@@ -258,93 +296,77 @@
     		$conn->close();
     		?>
         </div>
-  </main>
 
-  <!-- Site footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <h6>About</h6>
-          <p class="text-justify">Dunkirk Corp. is a newly established upbeat real estate agency with
-            connections PAN India. We handle all types of properties, including houses, condos,
-            villas,townhomes, land, and more. We handle sales and rentals to meet all lifestyle needs,
-            including vacation homes, waterfront, island, ski, golf, farm, ranch and many others.
-            Contact a Dunkirk brand agent today to sell your property, or find a
-            new home, around the world.</p>
-        </div>
-        <div class="col-xs-6 col-md-3">
-          <h6>Categories</h6>
-          <ul class="footer-links">
-            <li>
-              <a href="https: //www.investopedia.com/terms/r/realestate.asp">Understand what we do.</a>
-            </li>
-            <li>
-              <a href="https: //www.thebalance.com/real-estate-what-it-is-and-how-it-works-3305882">
-                Why invest in real estate?</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-xs-6 col-md-3">
-          <h6>Quick Links</h6>
-          <ul class="footer-links">
-            <li>
-              <a href="#">Home</a>
-            </li>
-            <li>
-              <a href="#">Buy</a>
-            </li>
-            <li>
-              <a href="#">Loan</a>
-            </li>
-            <li>
-              <a href="#">Property Services</a>
-            </li>
-          </ul>
-        </div>
+
+      </main>
+      <footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <br>
+        <h6>About</h6>
+        <p class="text-justify">Dunkirk Corp. is a newly established upbeat real estate agency with
+          connections PAN India. We handle all types of properties, including houses, condos,
+          villas,
+          townhomes, land, and more. We handle sales and rentals to meet all lifestyle needs,
+          including vacation homes, waterfront, island, ski, golf, farm, ranch and many others.
+          Contact a Dunkirk brand agent today to sell your property, or find a
+          new home, around the world.</p>
       </div>
-      <hr>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-6 col-xs-12">
-          <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
-            <a href="#">Dunkirk Corp</a>.
-          </p>
-        </div>
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <ul class="social-icons">
-            <li>
-              <a class="facebook" href="#">
-                <iclass="fa fa-facebook"></i>
-              </a>
-            </li>
-            <li>
-              <a class="twitter" href="#">
-                <iclass="fa fa-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a class="dribbble" href="#">
-                <iclass="fa fa-dribbble"></i>
-              </a>
-            </li>
-            <li>
-              <a class="linkedin" href="#">
-                <iclass="fa fa-linkedin"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
+
+      <div class="col-xs-6 col-md-3">
+        <br>
+        <h6>Categories</h6>
+        <ul class="footer-links">
+          <li><a href="https://www.investopedia.com/terms/r/realestate.asp">Understand what we do.</a>
+          </li>
+          <li><a href="https://www.thebalance.com/real-estate-what-it-is-and-how-it-works-3305882">
+              Why invest in real estate?</a></li>
+        </ul>
+      </div>
+
+      <div class="col-xs-6 col-md-3">
+        <br>
+        <h6>Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Buy</a></li>
+          <li><a href="#">Loan</a></li>
+          <li><a href="#">Property Services</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
-  <!-- / Footer -->
+    <hr>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6 col-xs-12">
+        <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
+          <a href="#">Dunkirk Corp</a>.
+        </p>
+      </div>
 
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <ul class="social-icons">
+          <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+          <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+</footer>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="Buy.js"></script>
+  <script src="buyjs.js"></script>
 </body>
+
+
 
 </html>

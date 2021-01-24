@@ -43,7 +43,7 @@
 }
 
 .py-5 {
-  background: #ffffff; 
+  background: #ffffff;
   background: linear-gradient(to right, #000000,#1cb6ce);
   text-align: center;
 }
@@ -164,7 +164,7 @@ img {
   display: inline;
   float: left;
   width: 100%;
-  padding: 100px 0;
+  padding: 25px 0;
 }
 #latest-property .latest-property-area {
   display: inline;
@@ -368,6 +368,8 @@ table {
 * {
   font-family: "Raleway", Arial, Helvetica, sans-serif;
 }
+
+
 
 /*==================
   Footer
