@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost:3307", "root", "", "miniproject");
+$conn = mysqli_connect("localhost", "root", "", "miniproject");
 if (!$conn) {
     die('Could not Connect MySql Server:' . mysqli_error($conn));
 }

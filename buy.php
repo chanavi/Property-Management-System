@@ -118,7 +118,7 @@
         <div id="box-prop" class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-3 g-3">
 
           <?php
-    		$conn = mysqli_connect("localhost:3307", "root", "", "miniproject");
+    		$conn = mysqli_connect("localhost", "root", "", "miniproject");
     // Check connection
     		if ($conn->connect_error) {
     			die("Connection failed: " . $conn->connect_error);
