@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+  
+  <div class="collapse navbar-collapse" id="expandme">
+
+    <nav class="navbar navbar-expand-lg navbar-dark  bg-info fixed-top">
+      <a class="navbar-brand" href="#">Property Mangement System</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#expandme">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="expandme">
+  
+        <div class="navbar-nav">
+          <div class="btn-group">
+            <button class="btn"><a href="home_login.html" class="nav-item nav-link">Home</a></button>
+            <button class="btn"><a href="buy.php" class="nav-item nav-link">Buy</a></button>
+            <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Sell</a></button>
+            <button class="btn"><a href="buy.php" class="nav-item nav-link">Rent In</a></button>
+            <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Rent Out</a></button>
+            <button class="btn"><a href="broker.html" class="nav-item nav-link">Broker</a></button>
+            <button class="btn"><a href="property_services.html" class="nav-item nav-link">Services</a></button>
+            <button class="btn"><a href="about_us.html" class="nav-item nav-link">About Us</a></button>
+            <button class="btn"><a href="Home.html" class="nav-item nav-link">Logout</a></button>
+          </div>
+  
+        </div>
+      </div>
+    </nav>
+
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Real Estate Cost Prediction</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Predict the cost of Dream Estate - By Dunkirk Corp.
+        <br>
+        </h5>
+      </div>
+
+              <div class="row">
+    <form action='/predict' method="POST" class="col s12">
+      <div class="row">
+        <div class="input-field col s4">
+            <label for="first_name"><b>Location</b></label>
+            <br>
+          <input   id="first_name" name='Location'type="text" class="validate">
+        </div>
+        <div class="input-field col s4">
+
+          <label for="last_name"><b>Type</b></label>
+            <br>
+          <input id="last_name"  name="Type" type="text" class="validate">
+
+        </div>
+
+        <div class="input-field col s4">
+            <label for="_name"><b>Rooms</b></label>
+            <br>
+          <input id="_name" name="Rooms" type="text" class="validate">
+
+        </div>
+        
+        <div class="input-field col s4">
+            <label for="_name"><b>Square Feet</b></label>
+            <br>
+          <input id="_name" name="SquareFt" type="text" class="validate">
+
+        </div>
+
+        <div class="input-field col s4">
+            <label for="_name"><b>Established Date</b></label>
+            <br>
+          <input id="_name" name="EstdDate" type="text" class="validate">
+
+        </div>
+
+        <div class="input-field col s4">
+            <label for="_name"><b>No. of close by services</b></label>
+            <br>
+          <input id="_name" name="CloseByServices" type="text" class="validate">
+
+        </div>
+
+        <div class="input-field col s4">
+            <label for="_name"><b>No. of Amminities</b></label>
+            <br>
+          <input id="_name" name="Amminities" type="text" class="validate">
+
+        </div>
+
+      </div>
+
+      <div class="row center">
+
+          <button type="submit" class="btn-large waves-effect waves-light orange">Predict Cost</button>
+      </div>
+    </form>
+      </div>
+
+      <br><h4 align="center"<b>{{pred}}</b></h4>
+        <br>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <br>
+          <h6>About</h6>
+          <p class="text-justify">Dunkirk Corp. is a newly established upbeat real estate agency with
+            connections PAN India. We handle all types of properties, including houses, condos,
+            villas,
+            townhomes, land, and more. We handle sales and rentals to meet all lifestyle needs,
+            including vacation homes, waterfront, island, ski, golf, farm, ranch and many others.
+            Contact a Dunkirk brand agent today to sell your property, or find a
+            new home, around the world.</p>
+        </div>
+  
+        <div class="col-xs-6 col-md-3">
+          <br>
+          <h6>Categories</h6>
+          <ul class="footer-links">
+            <li><a href="https://www.investopedia.com/terms/r/realestate.asp">Understand what we do.</a>
+            </li>
+            <li><a href="https://www.thebalance.com/real-estate-what-it-is-and-how-it-works-3305882">
+                Why invest in real estate?</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-xs-6 col-md-3">
+          <br>
+          <h6>Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Buy</a></li>
+            <li><a href="#">Loan</a></li>
+            <li><a href="#">Property Services</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
+            <a href="#">Dunkirk Corp</a>.
+          </p>
+        </div>
+  
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src=".js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
+
