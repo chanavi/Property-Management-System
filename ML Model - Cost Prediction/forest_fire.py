@@ -1,3 +1,4 @@
+from sklearn.metrics import accuracy_score
 from sklearn import preprocessing
 import numpy as np
 import pandas as pd
@@ -8,12 +9,14 @@ import pickle
 warnings.filterwarnings("ignore")
 
 data = pd.read_csv(
-    "Forest-Fire-Prediction-Website-master/Cost_Prediction.csv", header=0)
+    "ML Model - Cost Prediction/Cost_Prediction.csv", header=0)
 data = np.array(data)
 
 le = preprocessing.LabelEncoder()
 data[:, 0] = le.fit_transform(data[:, 0])
+print(le.classes_)
 data[:, 1] = le.fit_transform(data[:, 1])
+print(le.classes_)
 
 X = data[:, 0:-1]
 y = data[:, -1]
@@ -24,6 +27,8 @@ regr = RandomForestRegressor()
 regr.fit(X_train, y_train)
 
 b = regr.predict(X_test)
+# print(accuracy_score(y_test, int(b)))
+print(y_test)
 print(b)
 
 pickle.dump(regr, open('model.pkl', 'wb'))
