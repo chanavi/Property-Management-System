@@ -2,115 +2,118 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
-
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <title>Cost Prediction</title>
+  <!-- CDNs -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+  <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Arapey&family=Josefin+Slab:wght@500&family=Neucha&family=Raleway:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;500;700&display=swap" rel="stylesheet">
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="ML Model - Cost Prediction/cost.css">
 </head>
 
 <body>
   
-  <div class="collapse navbar-collapse" id="expandme">
+  <nav class="navbar navbar-expand-lg navbar-dark  bg-info fixed-top">
+    <a class="navbar-brand" href="#">Property Mangement System</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#expandme">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="expandme">
 
-    <nav class="navbar navbar-expand-lg navbar-dark  bg-info fixed-top">
-      <a class="navbar-brand" href="#">Property Mangement System</a>
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#expandme">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="expandme">
-  
-        <div class="navbar-nav">
-          <div class="btn-group">
-            <button class="btn"><a href="home_login.html" class="nav-item nav-link">Home</a></button>
-            <button class="btn"><a href="buy.php" class="nav-item nav-link">Buy</a></button>
-            <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Sell</a></button>
-            <button class="btn"><a href="buy.php" class="nav-item nav-link">Rent In</a></button>
-            <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Rent Out</a></button>
-            <button class="btn"><a href="broker.html" class="nav-item nav-link">Broker</a></button>
-            <button class="btn"><a href="property_services.html" class="nav-item nav-link">Services</a></button>
-            <button class="btn"><a href="about_us.html" class="nav-item nav-link">About Us</a></button>
-            <button class="btn"><a href="Home.html" class="nav-item nav-link">Logout</a></button>
+      <div class="navbar-nav">
+        <div class="btn-group">
+          <button class="btn"><a href="home_login.html" class="nav-item nav-link">Home</a></button>
+          <button class="btn"><a href="buy.php" class="nav-item nav-link">Buy</a></button>
+          <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Sell</a></button>
+          <button class="btn"><a href="buy.php" class="nav-item nav-link">Rent In</a></button>
+          <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Rent Out</a></button>
+          <button class="btn"><a href="broker.html" class="nav-item nav-link">Broker</a></button>
+          <button class="btn"><a href="property_services.html" class="nav-item nav-link">Services</a></button>
+          <button class="btn"><a href="about_us.html" class="nav-item nav-link">About Us</a></button>
+          <button class="btn"><a href="Home.html" class="nav-item nav-link">Logout</a></button>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+
+  <div>
+    <div >
+      <h1 >Real Estate Cost Prediction</h1>
+      <div >
+        <h5 >Predict the cost of Dream Estate - By Dunkirk Corp.<br></h5>
+      </div>
+
+      <form action='/predict' method="POST" class="col s12">
+        <div class="row">
+          <div class="col-12">
+              <label for="first_name"><b>Location</b></label>
+              <br>
+            <input   id="first_name" name='Location'type="text" class="validate">
           </div>
-  
-        </div>
-      </div>
-    </nav>
+          <div class="col-12">
 
+            <label for="last_name"><b>Type</b></label>
+              <br>
+            <input id="last_name"  name="Type" type="text" class="validate">
 
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
-      <h1 class="header center orange-text">Real Estate Cost Prediction</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">Predict the cost of Dream Estate - By Dunkirk Corp.
-        <br>
-        </h5>
-      </div>
+          </div>
 
-              <div class="row">
-    <form action='/predict' method="POST" class="col s12">
-      <div class="row">
-        <div class="input-field col s4">
-            <label for="first_name"><b>Location</b></label>
-            <br>
-          <input   id="first_name" name='Location'type="text" class="validate">
-        </div>
-        <div class="input-field col s4">
+          <div class="col-12">
+              <label for="_name"><b>Rooms</b></label>
+              <br>
+            <input id="_name" name="Rooms" type="text" class="validate">
 
-          <label for="last_name"><b>Type</b></label>
-            <br>
-          <input id="last_name"  name="Type" type="text" class="validate">
+          </div>
+          
+          <div class="col-12">
+              <label for="_name"><b>Square Feet</b></label>
+              <br>
+            <input id="_name" name="SquareFt" type="text" class="validate">
 
-        </div>
+          </div>
 
-        <div class="input-field col s4">
-            <label for="_name"><b>Rooms</b></label>
-            <br>
-          <input id="_name" name="Rooms" type="text" class="validate">
+          <div class="col-12">
+              <label for="_name"><b>Established Date</b></label>
+              <br>
+            <input id="_name" name="EstdDate" type="text" class="validate">
 
-        </div>
-        
-        <div class="input-field col s4">
-            <label for="_name"><b>Square Feet</b></label>
-            <br>
-          <input id="_name" name="SquareFt" type="text" class="validate">
+          </div>
 
-        </div>
+          <div class="col-12">
+              <label for="_name"><b>No. of close by services</b></label>
+              <br>
+            <input id="_name" name="CloseByServices" type="text" class="validate">
 
-        <div class="input-field col s4">
-            <label for="_name"><b>Established Date</b></label>
-            <br>
-          <input id="_name" name="EstdDate" type="text" class="validate">
+          </div>
+
+          <div class="col-12">
+              <label for="_name"><b>No. of Amminities</b></label>
+              <br>
+            <input id="_name" name="Amminities" type="text" class="validate">
+
+          </div>
 
         </div>
 
-        <div class="input-field col s4">
-            <label for="_name"><b>No. of close by services</b></label>
-            <br>
-          <input id="_name" name="CloseByServices" type="text" class="validate">
+        <div class="row center">
 
+            <button type="submit" class="btn-large waves-effect waves-light orange">Predict Cost</button>
         </div>
-
-        <div class="input-field col s4">
-            <label for="_name"><b>No. of Amminities</b></label>
-            <br>
-          <input id="_name" name="Amminities" type="text" class="validate">
-
-        </div>
-
+      </form>
       </div>
 
-      <div class="row center">
-
-          <button type="submit" class="btn-large waves-effect waves-light orange">Predict Cost</button>
-      </div>
-    </form>
-      </div>
-
-      <br><h4 align="center"<b>{{pred}}</b></h4>
+      <br><h4><b>{{pred}}</b></h4>
         <br>
 
     </div>
