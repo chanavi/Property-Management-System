@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Arapey&family=Josefin+Slab:wght@500&family=Neucha&family=Raleway:wght@500;600&display=swap" rel="stylesheet">
-	<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arapey&family=Josefin+Slab:wght@500&family=Neucha&family=Raleway:wght@500;600&display=swap"
+        rel="stylesheet">
+    <style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
 
 
-* {
-  font-family: "Raleway", Arial, Helvetica, sans-serif;
-}
+    * {
+        font-family: "Raleway", Arial, Helvetica, sans-serif;
+    }
 
-/* Button used to open the contact form - fixed at the bottom of the page */
-.open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
- /* position: fixed;
+    /* Button used to open the contact form - fixed at the bottom of the page */
+    .open-button {
+        background-color: #555;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        /* position: fixed;
   bottom: 23px;
   right: 28px;
   width: 280px;*/
-}
+    }
 
 
-.form-popup {
-  display: none;
-  /*position: fixed;
+    .form-popup {
+        display: none;
+        /*position: fixed;
   bottom: 0;
   right: 15px;*/
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-}
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+    }
 
 
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-}
+    .form-container {
+        max-width: 300px;
+        padding: 10px;
+        background-color: white;
+    }
 
-/*
+    /*
 .form-container input[type=text], .form-container input[type=password] {
   width: 100%;
   padding: 15px;
@@ -59,57 +67,59 @@ body {font-family: Arial, Helvetica, sans-serif;}
   outline: none;
 }*/
 
-/* Set a style for the submit/login button */
-.form-container .btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
+    /* Set a style for the submit/login button */
+    .form-container .btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 10px;
+        opacity: 0.8;
+    }
 
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
-}
+    /* Add a red background color to the cancel button */
+    .form-container .cancel {
+        background-color: red;
+    }
 
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
-}
-</style>
-	<title>Broker</title>
+    /* Add some hover effects to buttons */
+    .form-container .btn:hover,
+    .open-button:hover {
+        opacity: 1;
+    }
+    </style>
+    <title>Broker</title>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark  bg-info fixed-top">
-    <a class="navbar-brand" href="#">Property Mangement System</a>
-    <button class="navbar-toggler" data-toggle="collapse" data-target="#expandme">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="expandme">
+    <nav class="navbar navbar-expand-lg navbar-dark  bg-info fixed-top">
+        <a class="navbar-brand" href="#">Property Mangement System</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#expandme">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="expandme">
 
-      <div class="navbar-nav">
-        <div class="btn-group">
-          <button class="btn"><a href="home_login.html" class="nav-item nav-link">Home</a></button>
-          <button class="btn"><a href="buy.php" class="nav-item nav-link">Buy</a></button>
-          <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Sell</a></button>
-          <button class="btn"><a href="buy.php" class="nav-item nav-link">Rent In</a></button>
-          <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Rent Out</a></button>
-          <button class="btn"><a href="broker.html" class="nav-item nav-link">Broker</a></button>
-          <button class="btn"><a href="property_services.html" class="nav-item nav-link">Services</a></button>
-          <button class="btn"><a href="about_us.html" class="nav-item nav-link">About Us</a></button>
-          <button class="btn"><a href="Home.html" class="nav-item nav-link">Logout</a></button>
+            <div class="navbar-nav">
+                <div class="btn-group">
+                    <button class="btn"><a href="home_login.html" class="nav-item nav-link">Home</a></button>
+                    <button class="btn"><a href="buy.php" class="nav-item nav-link">Buy</a></button>
+                    <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Sell</a></button>
+                    <button class="btn"><a href="buy.php" class="nav-item nav-link">Rent In</a></button>
+                    <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Rent Out</a></button>
+                    <button class="btn"><a href="broker.html" class="nav-item nav-link">Broker</a></button>
+                    <button class="btn"><a href="property_services.html" class="nav-item nav-link">Services</a></button>
+                    <button class="btn"><a href="about_us.html" class="nav-item nav-link">About Us</a></button>
+                    <button class="btn"><a href="Home.html" class="nav-item nav-link">Logout</a></button>
+                </div>
+
+            </div>
         </div>
+    </nav>
 
-      </div>
-    </div>
-  </nav>
-
-	<table border=1>
-		<!-- <tr>
+    <table border=1>
+        <!-- <tr>
 			<th>Student ID</th>
 			<th>First Name</th>
 			<th>Last Name</th>
@@ -117,9 +127,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 			<th>E-mail</th>
 			<th>Contact No.</th> 
 		</tr> -->
-		<tr>
+        <tr>
 
-		<?php
+            <?php
 		$conn = mysqli_connect("localhost", "root", "", "miniproject");
 // Check connection
 		if ($conn->connect_error) {
@@ -181,7 +191,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 				$row9 = $result9->fetch_assoc();
 
 
-			if ($result->num_rows > 0){
+			if ($result->num_rows > 0) {
 				echo '<tr><td> OwnerID : ' . $row4["owner_id"]. '</td></tr><tr><td> Owner Name : ' . $row4["owner_name"] . '</td></tr><tr><td> Owner EMail Id : '
 				. $row4["email_id"]. '</td></tr><tr><td> CustomerID : ' . $row1["cust_id"]. '</td></tr><tr><td> Customer Name ' . $row1["cust_name"]. '</td></tr>
 				<tr><td> Customer EMail Id : '.$row1["email_id"].'</td></tr>
@@ -212,8 +222,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
 				echo "</td>";
 	
 			}
-
-			}
 			echo "</table>";
 		}
 		 else { echo "0 results"; }
@@ -221,7 +229,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 		$conn->close();
 		?>
 
-	</tr>
-	</table>
+        </tr>
+    </table>
 </body>
+
 </html>
