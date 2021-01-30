@@ -1,6 +1,7 @@
 from flask import Flask, request, url_for, redirect, render_template
 import pickle
 import numpy as np
+import math
 
 app = Flask(__name__)
 
@@ -9,7 +10,7 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/')
 def hello_world():
-    return render_template("forest.html")
+    return render_template("cost_prediction.html")
 
 
 @app.route('/predict', methods=['POST', 'GET'])
@@ -20,7 +21,10 @@ def predict():
     print(final)
     output = model.predict(final)
 
-    return render_template('forest.html', pred='Estimated Cost {}'.format(output))
+    # Rounding up
+    output = int(math.ceil(output/100000)*100000)
+
+    return render_template('cost_prediction.html', pred='Estimated Cost : INR {}'.format((output)))
 
 
 if __name__ == '__main__':
