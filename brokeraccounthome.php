@@ -4,9 +4,6 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Arapey&family=Josefin+Slab:wght@500&family=Neucha&family=Raleway:wght@500;600&display=swap"
-        rel="stylesheet">
     <style>
     body {
         font-family: Arial, Helvetica, sans-serif;
@@ -14,11 +11,6 @@
 
     * {
         box-sizing: border-box;
-    }
-
-
-    * {
-        font-family: "Raleway", Arial, Helvetica, sans-serif;
     }
 
     /* Button used to open the contact form - fixed at the bottom of the page */
@@ -94,30 +86,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark  bg-info fixed-top">
-        <a class="navbar-brand" href="#">Property Mangement System</a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#expandme">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="expandme">
 
-            <div class="navbar-nav">
-                <div class="btn-group">
-                    <button class="btn"><a href="home_login.html" class="nav-item nav-link">Home</a></button>
-                    <button class="btn"><a href="buy.php" class="nav-item nav-link">Buy</a></button>
-                    <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Sell</a></button>
-                    <button class="btn"><a href="buy.php" class="nav-item nav-link">Rent In</a></button>
-                    <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Rent Out</a></button>
-                    <button class="btn"><a href="broker.html" class="nav-item nav-link">Broker</a></button>
-                    <button class="btn"><a href="property_services.html" class="nav-item nav-link">Services</a></button>
-                    <button class="btn"><a href="about_us.html" class="nav-item nav-link">About Us</a></button>
-                    <button class="btn"><a href="Home.html" class="nav-item nav-link">Logout</a></button>
-                </div>
-
-            </div>
-        </div>
-    </nav>
-
+    <a class="nav-item div" href="logout.php" id="navbarDropdown" role="button" style="padding: 14px 16px">LOGOUT</a>
     <table border=1>
         <!-- <tr>
 			<th>Student ID</th>
@@ -137,7 +107,7 @@
 		}
 		session_start();
     	if(!isset($_SESSION["emailid"])) {
-      		header("Location: AdminLogin.php");
+      		header("Location: brokeraccounthome.php");
       		exit();
     	}
 		$admin = $_SESSION['emailid']; 
@@ -191,7 +161,7 @@
 				$row9 = $result9->fetch_assoc();
 
 
-			if ($result->num_rows > 0) {
+			if ($result->num_rows > 0){
 				echo '<tr><td> OwnerID : ' . $row4["owner_id"]. '</td></tr><tr><td> Owner Name : ' . $row4["owner_name"] . '</td></tr><tr><td> Owner EMail Id : '
 				. $row4["email_id"]. '</td></tr><tr><td> CustomerID : ' . $row1["cust_id"]. '</td></tr><tr><td> Customer Name ' . $row1["cust_name"]. '</td></tr>
 				<tr><td> Customer EMail Id : '.$row1["email_id"].'</td></tr>
@@ -222,6 +192,8 @@
 				echo "</td>";
 	
 			}
+
+			}
 			echo "</table>";
 		}
 		 else { echo "0 results"; }
@@ -231,6 +203,55 @@
 
         </tr>
     </table>
+    <html>
+
+    <body>
+        <form name="form" method="post">
+            <input type="submit" name="button1" value="Confirm Resgitration" />
+            <input type="submit" name="button2" value="Make Connection" />
+            <input type="submit" name="button3" value="Cancel Booking" />
+            <!-- <input type="submit" name="button4" value="Button 4" /> -->
+
+        </form>
+    </body>
+    <?php
+		$conn = mysqli_connect("localhost", "root", "", "miniproject");
+        // Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+        }
+
+        
+if (isset($_POST['button1'])) {
+$sql15 = "DELETE FROM property where property_id = 9001";
+if (mysqli_query($conn, $sql15)) {
+    echo "Record deleted successfully";
+  } else {
+    echo "Error deleting record: " . $conn->error;
+  }
+}
+    
+    if(isset($_POST['button2'])){
+        $sql16 = "Call update_cust()";
+        if (mysqli_query($conn, $sql16)) {
+            echo "Connection established successfully!";
+          } else {
+            echo "Error deleting record: " . $conn->error;
+          }
+    }
+    
+    if(isset($_POST['button3'])){
+        $sql17 = "UPDATE property set cust_id = NULL where property_id = 9002";
+        if (mysqli_query($conn, $sql17)) {
+            echo "Cancel the booking";
+          } else {
+            echo "Error deleting record: " . $conn->error;
+          }
+    }//if isset
+    ?>
+
+    </html>
+    </form>
 </body>
 
 </html>

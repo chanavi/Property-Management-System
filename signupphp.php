@@ -10,8 +10,18 @@ $contactno = $_POST['contactno'];
 $emailid = $_POST['emailid'];
 $passw = $_POST['passw'];
 
-$sql = "INSERT INTO maintable (name,contact_no,email_id,password)
-     VALUES ('$name','$contactno','$emailid','$passw')";
+$sql1 = "SELECT MAX(user_id) FROM maintable";
+if (mysqli_query($conn, $sql)) {
+    $row0 = $result0->fetch_assoc();
+	$user_id = $row0["MAX(user_id)"];
+} else {
+    echo "Error: " . $sql . ":-" . mysqli_error($conn);
+}
+
+$user_id++;
+echo 'result is'. $result1;
+$sql = "INSERT INTO maintable (user_id,name,email_id,contact_no,password)
+     VALUES ('$user_id','$name','$emailid','$contactno','$passw')";
 
 if (mysqli_query($conn, $sql)) {
     echo "<script>
