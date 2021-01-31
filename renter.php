@@ -1,4 +1,3 @@
-
 <?php
 $conn = mysqli_connect("localhost", "root", "", "miniproject");
 if (!$conn) {
@@ -111,7 +110,7 @@ if (!$conn) {
     if ($counter == 7) {
         echo " <script>
         alert('Your property has been added');
-        location = 'rentsell.html';
+        location = 'sellrent.html';
         </script>";
         // header("Location: accounthome.html");
     }

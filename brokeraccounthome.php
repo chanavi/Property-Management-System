@@ -168,7 +168,6 @@
 
         
 if (isset($_POST['button1'])) {
-    echo "Button 1 pressed";
 $sql15 = "DELETE FROM property where property_id = 9001";
 if (mysqli_query($conn, $sql15)) {
     echo "Record deleted successfully";

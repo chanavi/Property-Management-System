@@ -4,36 +4,34 @@ if (!$conn) {
     die('Could not Connect MySql Server:' . mysqli_error($conn));
 }
 
-session_start()
-
 $name = $_POST['name'];
 $contactno = $_POST['contactno'];
 $emailid = $_POST['emailid'];
 $passw = $_POST['passw'];
+$boc=$_POST['bco'];
 
-$sql1 = "SELECT MAX(user_id) FROM maintable";
-if (mysqli_query($conn, $sql)) {
-    $row0 = $result0->fetch_assoc();
-	$user_id = $row0["MAX(user_id)"];
-} else {
-    echo "Error: " . $sql . ":-" . mysqli_error($conn);
-}
+$sql="Select MAX(user_id) from maintable";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$ID=$row['MAX(user_id)'];
+$ID++;
 
-$user_id++;
-echo 'result is'. $result1;
-$sql = "INSERT INTO maintable (user_id,name,email_id,contact_no,password)
-     VALUES ('$user_id','$name','$emailid','$contactno','$passw')";
-
+$sql = "INSERT INTO maintable (user_id,name,contact_no,email_id,password)
+     VALUES ('$ID','$name','$contactno','$emailid','$passw')";
 
 if (mysqli_query($conn, $sql)) {
-    echo "<script>
-        alert('Account Generated. Please LogIn.');
-        location = 'Login.html';
-        </script>";
+  echo "<script>
+          alert('Account Generated. Please LogIn.');
+          location = 'Login.html';
+          </script>";
+
+
     //echo "New record has been added successfully !";
     // header("Location: login.html");
     exit();
 } else {
     echo "Error: " . $sql . ":-" . mysqli_error($conn);
 }
+
+
 mysqli_close($conn);
