@@ -68,7 +68,8 @@
         </div>
       </section>
     </div>
-
+<div class="d-flex justify-content-center">
+  <div class="w-75 p-3">
     <div id="section-2" class="container invisible">
       <div class="py-5 text-center">
         <!--  <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
@@ -85,14 +86,14 @@
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-sm">-->
 
-      <!--  <div class="col-md-7 col-lg-8">-->
+
       <h4 class="mb-3">Advertisement Details</h4>
-      <form action="seller.php" method="post">
+      <form action="seller.php" class="needs-validation" novalidate  method="post">
         <div class="row g-3">
           <div class="col-12">
             <label for="ownerName" class="form-label">Name</label>
             <!--ownerName-->
-            <input name="ownerName" type="text" class="form-control" id="ownerName" placeholder="" value="" required>
+            <input name="ownerName" type="text" class="form-control" id="ownerName" pattern="[a-zA-Z]+" placeholder="" value="" required>
             <div class="invalid-feedback">
               Valid name is required.
             </div>
@@ -110,7 +111,7 @@
           <div class="col-12">
             <label for="contact" class="form-label">Contact Number</label>
             <!--ownerContact-->
-            <input name="ownerContact" type="text" class="form-control" id="contact" placeholder="" required>
+            <input name="ownerContact" type="text" class="form-control" min="1000000000" max="9999999999" id="contact" placeholder="" required>
             <div class="invalid-feedback">
               Valid contact number is required.
             </div>
@@ -119,7 +120,7 @@
           <div class="col-12">
             <label for="email" class="form-label">Email </label>
             <!--ownerEmail-->
-            <input name="ownerEmail" type="email" class="form-control" id="email" placeholder="you@example.com">
+            <input name="ownerEmail" type="email" class="form-control" pattern=".+@company\.com" id="email" placeholder="you@example.com">
             <div class="invalid-feedback">
               Please enter a valid email address.
             </div>
@@ -135,6 +136,7 @@
           </div>
 
           <div class="col-12">
+
             <label for="propertyID" class="form-label">Property ID</label>
             <!--propertyID-->
             <input name="propertyID" type="text" class="form-control" id="propertyID" required>
@@ -144,12 +146,14 @@
           </div>
 
           <div class="col-md-6">
+
             <label for="established_year" class="form-label">Date Established:</label>
             <input type="date" id="established_year" class="form-control" name="established_year" required>
           </div>
 
 
           <div class="col-12">
+
             <label for="brokerID" class="form-label">Broker ID</label>
             <input name="brokerID" type="text" class="form-control" id="brokerID" required>
             <div class="invalid-feedback">
@@ -158,6 +162,7 @@
           </div>
 
           <div class="col-12">
+
             <label for="location" class="form-label">City</label>
             <!--location-->
             <select name="location" class="form-select" id="location" required>
@@ -180,6 +185,7 @@
           </div>
 
           <div class="col-md-4">
+
             <label for="state" class="form-label">State</label>
             <select class="form-select" id="state" required>
               <option value="Select"></option>
@@ -201,22 +207,24 @@
 
           <div class="col-md-3">
             <label for="zip" class="form-label">Zip</label>
-            <input name="zip" type="text" class="form-control" id="zip" placeholder="" required>
+            <input name="zip" type="text" class="form-control" min="100000" max="999999"id="zip" placeholder="" required>
             <div class="invalid-feedback">
               Zip code required.
             </div>
           </div>
 
           <div class="col-12">
+
             <label for="amenities" class="form-label">Amenities</label>
             <!--amenities-->
-            <input name="amenities" type="text" class="form-control" id="amenities" placeholder="" required>
+            <input name="amenities" type="text" class="form-control" pattern="[a-zA-Z]+" id="amenities" placeholder="" required>
           </div>
 
           <div class="col-12">
+
             <label for="close_by_service" class="form-label">Close By Services</label>
             <!--services-->
-            <input name="close_by_service" type="text" class="form-control" id="close_by_service" placeholder="" required>
+            <input name="close_by_service" type="text" class="form-control" pattern="[a-zA-Z]+" id="close_by_service" placeholder="" required>
           </div>
 
           <script type="text/javascript">
@@ -253,24 +261,28 @@
             </div>
 
             <div class="col-md-6">
+
               <label for="res_house_name" class="form-label">House Name</label>
               <!--house_name-->
-              <input name="res_house_name" type="text" class="form-control" id="res_house_name" placeholder="Atlantis">
+              <input name="res_house_name" type="text" class="form-control" pattern="[a-zA-Z]+" id="res_house_name" placeholder="Atlantis">
             </div>
 
             <div class="col-12">
+
               <label for="res_address" class="form-label">Address</label>
               <!--res_address-->
-              <input name="res_address" type="text" class="form-control" id="res_address" placeholder="">
+              <input name="res_address" type="text" class="form-control" pattern="[a-zA-Z]+" id="res_address" placeholder="">
             </div>
 
             <div class="col-12">
+
               <label for="rate" class="form-label">Rate per square feet</label>
               <!--rate_per_sqft-->
               <input name="rate_per_sqft" type="text" class="form-control" id="rate" placeholder="₹">
             </div>
 
             <div class="col-12">
+
               <label for="bhk" class="form-label">BHK</label>
               <!--bhk-->
               <select name="BHK" class="form-select" id="bhk">
@@ -293,30 +305,35 @@
 
 
             <div class="col-12" id="com">
+
               <label for="com_shop_no" class="form-label">Shop Number</label>
               <!--shop_no-->
               <input name="com_shop_no" type="text" class="form-control" id="com_shop_no" placeholder="1045">
             </div>
 
             <div class="col-12">
+
               <label for="com_building_name" class="form-label">Building Name</label>
               <!--building_name-->
-              <input name="building_name" type="text" class="form-control" id="com_building_name" placeholder="Atlantis">
+              <input name="building_name" type="text" class="form-control" pattern="[a-zA-Z]+" id="com_building_name" placeholder="Atlantis">
             </div>
 
             <div class="col-12">
+
               <label for="com_address" class="form-label">Address</label>
               <!--com_address-->
-              <input name="com_address" type="text" class="form-control" id="com_address" placeholder="">
+              <input name="com_address" type="text" class="form-control" pattern="[a-zA-Z]+" id="com_address" placeholder="">
             </div>
 
             <div class="col-12">
+
               <label for="Carpet_Area" class="form-label">Carpet Area</label>
               <!--sqft-->
               <input name="Carpet_Area" type="text" class="form-control" id="Carpet_Area" placeholder="">
             </div>
 
             <div class="col-12">
+
               <label for="rent_rate" class="form-label">Rate per square feet</label>
               <!--rate_per_sqft-->
               <input name="rent_rate_per_sqft" type="text" class="form-control" id="rent_rate" placeholder="₹">
@@ -325,6 +342,7 @@
             <hr class="my-4">
 
             <div class="form-check">
+
               <input type="checkbox" class="form-check-input" id="tc">
               <label class="form-check-label" for="tc">I have read and agree to the terms & conditions</label>
             </div>
@@ -355,12 +373,12 @@
 
       <!--  <div class="col-md-7 col-lg-8">-->
       <h4 class="mb-3">Advertisement Details</h4>
-      <form action="renter.php" method="post">
+      <form action="renter.php" class="needs-validation" novalidate method="post">
         <div class="row g-3">
           <div class="col-12">
             <label for="rent_ownerName" class="form-label">Name</label>
             <!--ownerName-->
-            <input name="rent_ownerName" type="text" class="form-control" id="rent_ownerName" placeholder="" value="" required>
+            <input name="rent_ownerName" type="text" class="form-control" pattern="[a-zA-Z]+" id="rent_ownerName" placeholder="" value="" required>
             <div class="invalid-feedback">
               Valid name is required.
             </div>
@@ -378,7 +396,7 @@
           <div class="col-12">
             <label for="rent_contact" class="form-label">Contact Number</label>
             <!--ownerContact-->
-            <input name="rent_Contact" type="text" class="form-control" id="rent_contact" placeholder="" required>
+            <input name="rent_Contact" type="text" class="form-control" min="1000000000" max="9999999999" id="rent_contact" placeholder="" required>
             <div class="invalid-feedback">
               Valid contact number is required.
             </div>
@@ -387,7 +405,7 @@
           <div class="col-12">
             <label for="rent_email" class="form-label">Email </label>
             <!--ownerEmail-->
-            <input name="rent_ownerEmail" type="email" class="form-control" id="rent_email" placeholder="you@example.com">
+            <input name="rent_ownerEmail" type="email" class="form-control" pattern=".+@company\.com" id="rent_email" placeholder="you@example.com">
             <div class="invalid-feedback">
               Please enter a valid email address.
             </div>
@@ -469,7 +487,7 @@
 
           <div class="col-md-3">
             <label for="rent_zip" class="form-label">Zip</label>
-            <input name="rent_zip" type="text" class="form-control" id="rent_zip" placeholder="" required>
+            <input name="rent_zip" type="text" class="form-control"min="100000" max="999999" id="rent_zip" placeholder="" required>
             <div class="invalid-feedback">
               Zip code required.
             </div>
@@ -480,13 +498,13 @@
           <div class="col-12">
             <label for="rent_amenities" class="form-label">Amenities</label>
             <!--amenities-->
-            <input name="rent_amenities" type="text" class="form-control" id="rent_amenities" placeholder="" required>
+            <input name="rent_amenities" type="text" class="form-control" pattern="[a-zA-Z]+" id="rent_amenities" placeholder="" required>
           </div>
 
           <div class="col-12">
             <label for="rent_services" class="form-label">Services</label>
             <!--services-->
-            <input name="rent_services" type="text" class="form-control" id="rent_services" placeholder="" required>
+            <input name="rent_services" type="text" class="form-control" pattern="[a-zA-Z]+" id="rent_services" placeholder="" required>
           </div>
 
           <script type="text/javascript">
@@ -526,13 +544,13 @@
             <div class="col-md-6">
               <label for="rent_res_house_name" class="form-label">House Name</label>
               <!--house_name-->
-              <input name="rent_res_house_name" type="text" class="form-control" id="rent_res_house_name" placeholder="Atlantis">
+              <input name="rent_res_house_name" type="text" class="form-control" pattern="[a-zA-Z]+" id="rent_res_house_name" placeholder="Atlantis">
             </div>
 
             <div class="col-12">
               <label for="rent_address" class="form-label">Address</label>
               <!--fake space-->
-              <input name="rent_res_address" type="text" class="form-control" id="rent_address" placeholder="">
+              <input name="rent_res_address" type="text" class="form-control" pattern="[a-zA-Z]+" id="rent_address" placeholder="">
             </div>
 
             <div class="col-12">
@@ -573,13 +591,13 @@
             <div class="col-12">
               <label for="rent_com_building_name" class="form-label">Building Name</label>
               <!--building_name-->
-              <input name="rent_com_building_name" type="text" class="form-control" id="rent_com_building_name" placeholder="Atlantis">
+              <input name="rent_com_building_name" type="text" class="form-control" pattern="[a-zA-Z]+" id="rent_com_building_name" placeholder="Atlantis">
             </div>
 
             <div class="col-12">
               <label for="rent_com_address" class="form-label">Address</label>
               <!--fake space-->
-              <input name="rent_com_address" type="text" class="form-control" id="rent_com_address" placeholder="">
+              <input name="rent_com_address" type="text" class="form-control" pattern="[a-zA-Z]+" id="rent_com_address" placeholder="">
             </div>
 
             <div class="col-12">
@@ -607,7 +625,8 @@
           <hr class="my-4">
       </form>
     </div>
-
+  </div>
+  </div>
   </main>
   <div class="footer invisible">
     <a href="#">About us</a>
