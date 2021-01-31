@@ -14,10 +14,32 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Arapey&family=Josefin+Slab:wght@500&family=Neucha&family=Raleway:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Arapey&family=Josefin+Slab:wght@500&family=Neucha&family=Raleway:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  * {
+    font-family: Raleway;
+  }
+
+  
+  .btn-dark {
+        background-color: #17a2b8;
+        border: #17a2b8;
+        font-size: large;
+    }
+
+    .btn-dark:hover {
+        background-color: #0141BD;
+        border: #0141BD;
+    }
+
+    .btn-dark:focus {
+        background-color: #17a2b8;
+    }
+</style>
 
 </head>
 
-<body>
+<body style="text-align: center;">
   
   <nav class="navbar navbar-expand-lg navbar-dark  bg-info fixed-top">
     <a style="padding-left: 0.6cm;" class="navbar-brand" href="#">Property Mangement System</a>
@@ -47,7 +69,7 @@
   <div style="padding-top: 1cm;">
     <div class="container">
       <br><br>
-      <div style="text-align: center;">
+      <div >
       <h1 >Real Estate Cost Prediction</h1>
         <h5 class="">Predict the cost of Dream Estate - By Dunkirk Corp.<br></h5>
       </div>
@@ -57,7 +79,7 @@
       <div class="row">
         <div class="col-12">
             <label for="location"><b>Location</b></label><br>
-            <select name="location" class="form-select" id="location" required>
+            <select  style="height: auto;" name="location" class="form-select" id="location" required>
               <option value="" disabled selected>Select desired location</option>
               <option value="0">Aundh</option>
               <option value="1">Baner</option>
@@ -162,7 +184,7 @@
         
         <div class="col-12">
           <br>
-          <button type="submit" class="">Predict Cost</button>
+          <button type="submit" class="btn-dark">Predict Cost</button>
         </div>
       </div>
     </form>
