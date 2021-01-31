@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
     body {
         font-family: Arial, Helvetica, sans-serif;
@@ -81,139 +82,83 @@
     .open-button:hover {
         opacity: 1;
     }
+
+    table {
+        margin: 0 auto;
+        font-size: large;
+        border: 1px solid black;
+    }
+
+    h1 {
+        text-align: center;
+        color: #17a2b8;
+        ;
+        font-size: xx-large;
+        font-family: 'Gill Sans', 'Gill Sans MT',
+            ' Calibri', 'Trebuchet MS', 'sans-serif';
+    }
+
+    td {
+        background-color: #E4F5D4;
+        border: 1px solid black;
+    }
+
+    th,
+    td {
+        font-weight: bold;
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+    }
+
+    td {
+        font-weight: lighter;
+    }
+
+    .btn-dark {
+        background-color: #17a2b8;
+        border: #17a2b8;
+        font-size: large;
+    }
+
+    .btn-dark:hover {
+        background-color: #0141BD;
+        border: #0141BD;
+    }
+
+    .btn-dark:focus {
+        background-color: #17a2b8;
+    }
     </style>
     <title>Broker</title>
 </head>
 
 <body>
 
-    <a class="nav-item div" href="logout.php" id="navbarDropdown" role="button" style="padding: 14px 16px">LOGOUT</a>
-    <table border=1>
-        <!-- <tr>
-			<th>Student ID</th>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Branch</th>
-			<th>E-mail</th>
-			<th>Contact No.</th> 
-		</tr> -->
-        <tr>
+    <nav class="navbar navbar-expand-lg navbar-dark  bg-info fixed-top">
+        <a class="navbar-brand" href="#">Property Mangement System</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#expandme">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="expandme">
 
-            <?php
-		$conn = mysqli_connect("localhost", "root", "", "miniproject");
-// Check connection
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
-		session_start();
-    	if(!isset($_SESSION["emailid"])) {
-      		header("Location: brokeraccounthome.php");
-      		exit();
-    	}
-		$admin = $_SESSION['emailid']; 
-		echo $admin;
-		$sql0 = "SELECT * FROM broker WHERE email_id = '$admin'";
-		$result0 = $conn->query($sql0);
-	if ($result0->num_rows > 0) {
-			$row0 = $result0->fetch_assoc();
-			$broker_id = $row0["broker_id"];
-			$sql4 = "SELECT * FROM prop_owner where broker_id = '$broker_id' ";
-				$result4 = $conn->query($sql4);
-			//$row4 = 1;
-// output data of each row
-			while($row4 = $result4->fetch_assoc()) {
-				echo "<td>";
-				echo "<table>";
-				
-				$ownerid = $row4["owner_id"];
+            <div class="navbar-nav">
+                <div class="btn-group">
+                    <button class="btn"><a href="home_login.html" class="nav-item nav-link">Home</a></button>
+                    <button class="btn"><a href="buy.php" class="nav-item nav-link">Buy</a></button>
+                    <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Sell</a></button>
+                    <button class="btn"><a href="buy.php" class="nav-item nav-link">Rent In</a></button>
+                    <button class="btn"><a href="sellrent.html" class="nav-item nav-link">Rent Out</a></button>
+                    <button class="btn"><a href="brokerlogin.html" class="nav-item nav-link">Broker</a></button>
+                    <button class="btn"><a href="property_services.html" class="nav-item nav-link">Services</a></button>
+                    <button class="btn"><a href="about_us.html" class="nav-item nav-link">About Us</a></button>
+                    <button class="btn"><a href="Home.html" class="nav-item nav-link">Logout</a></button>
+                </div>
 
-				$sql2 = "SELECT * FROM property where owner_id = '$ownerid' ";
-				$result2 = $conn->query($sql2);
-				$row2 = $result2->fetch_assoc();
-				$pro = $row2["property_id"];
+            </div>
+        </div>
+    </nav>
 
-				$sql = "SELECT * FROM residential_property where property_id = $pro";
-				$result = $conn->query($sql);
-				$row = $result->fetch_assoc();
-
-				$sql5 = "SELECT * FROM commercial_property where property_id = $pro";
-				$result5 = $conn->query($sql5);
-				$row5 = $result5->fetch_assoc();
-					
-				$sql1 = "SELECT * FROM customer where broker_id = $broker_id ";
-				$result1 = $conn->query($sql1);
-				$row1 = $result1->fetch_assoc();
-
-				$sql6 = "SELECT * FROM seller where owner_id = $ownerid ";
-				$result6 = $conn->query($sql6);
-				$row6 = $result6->fetch_assoc();
-				
-				$sql7 = "SELECT * FROM landlord where owner_id = $ownerid ";
-				$result7 = $conn->query($sql7);
-				$row7 = $result7->fetch_assoc();
-
-				$sql8 = "SELECT * FROM buyer where broker_id = $broker_id ";
-				$result8 = $conn->query($sql8);
-				$row8 = $result8->fetch_assoc();
-				
-				$sql9 = "SELECT * FROM tenant where broker_id = $broker_id ";
-				$result9 = $conn->query($sql9);
-				$row9 = $result9->fetch_assoc();
-
-
-			if ($result->num_rows > 0){
-				echo '<tr><td> OwnerID : ' . $row4["owner_id"]. '</td></tr><tr><td> Owner Name : ' . $row4["owner_name"] . '</td></tr><tr><td> Owner EMail Id : '
-				. $row4["email_id"]. '</td></tr><tr><td> CustomerID : ' . $row1["cust_id"]. '</td></tr><tr><td> Customer Name ' . $row1["cust_name"]. '</td></tr>
-				<tr><td> Customer EMail Id : '.$row1["email_id"].'</td></tr>
-				<tr><td> Property ID : ' .$row2["property_id"].'</td></tr>
-				<tr><td> House No. : ' . $row["house_no"] . '</td></tr><tr><td> House Name : '
-				. $row["house_name"]. '</td></tr><tr><td> BHK : ' . $row["bhk"]. '</td></tr><tr><td> Rate Per SQFT : ' . $row["rate_per_sqft"].' </td></tr>
-				<tr><td> Expected Price by Seller : ' .$row6["expected_price"].'</td></tr>
-				<tr><td> Expected/Maximum Price by Buyer : ' .$row8["max_price"].'</td></tr>
-				<tr><td> Expected Rent by Landlord : ' .$row7["expected_rent"].'</td></tr>
-				<tr><td> Expected/Maximum Price by Tenant : ' .$row9["max_rent"].'</td></tr>';
-				echo "</table>";
-				echo "</td>";
-
-			}
-
-			if($result5->num_rows > 0){
-				echo '<tr><td> OwnerID : ' . $row4["owner_id"]. '</td></tr><tr><td> Owner Name : ' . $row4["owner_name"] . '</td></tr><tr><td> Owner EMail Id : '
-				. $row4["email_id"]. '</td></tr><tr><td> CustomerID : ' . $row1["cust_id"]. '</td></tr><tr><td> Customer Name ' . $row1["cust_name"]. '</td></tr>
-				<tr><td> Customer EMail Id : '.$row1["email_id"].'</td></tr>
-				<tr><td> Property ID : ' .$row2["property_id"].'</td></tr>
-				<tr><td> House No. : ' . $row5["shop_no"] . '</td></tr><tr><td> Building Name : '
-				. $row5["building_name"]. '</td></tr><tr><td> Rate Per SQFT : ' . $row5["rate_per_sqft"]. '</td></tr>
-				<tr><td> Expected Price by Seller : ' .$row6["expected_price"].'</td></tr>
-				<tr><td> Expected/Maximum Price by Buyer : ' .$row8["max_price"].'</td></tr>
-				<tr><td> Expected Rent by Landlord : ' .$row7["expected_rent"].'</td></tr>
-				<tr><td> Expected/Maximum Price by Tenant : ' .$row9["max_rent"].'</td></tr>';
-				echo "</table>";
-				echo "</td>";
-	
-			}
-
-			}
-			echo "</table>";
-		}
-		 else { echo "0 results"; }
-		
-		$conn->close();
-		?>
-
-        </tr>
-    </table>
-    <html>
-
-    <body>
-        <form name="form" method="post">
-            <input type="submit" name="button1" value="Confirm Resgitration" />
-            <input type="submit" name="button2" value="Make Connection" />
-            <input type="submit" name="button3" value="Cancel Booking" />
-            <!-- <input type="submit" name="button4" value="Button 4" /> -->
-
-        </form>
-    </body>
     <?php
 		$conn = mysqli_connect("localhost", "root", "", "miniproject");
         // Check connection
@@ -223,11 +168,11 @@
 
         
 if (isset($_POST['button1'])) {
-$sql15 = "DELETE FROM property where property_id = 9001";
+$sql15 = "DELETE FROM property where property_id = 9003";
 if (mysqli_query($conn, $sql15)) {
     echo "Record deleted successfully";
   } else {
-    echo "Error deleting record: " . $conn->error;
+    echo "Error deleting record:" . $conn->error;
   }
 }
     
@@ -250,8 +195,142 @@ if (mysqli_query($conn, $sql15)) {
     }//if isset
     ?>
 
-    </html>
-    </form>
+</html>
+</form>
+</body>
+
+</html>
+
+<?php 
+  
+// Username is root 
+$user = 'root'; 
+$password = '';  
+  
+// Database name is gfg 
+$database = 'miniproject';  
+  
+// Server is localhost with 
+// port number 3308 
+$servername='localhost'; 
+$mysqli = new mysqli($servername, $user,  
+                $password, $database); 
+  
+// Checking for connections 
+if ($mysqli->connect_error) { 
+    die('Connect Error (' .  
+    $mysqli->connect_errno . ') '.  
+    $mysqli->connect_error); 
+} 
+
+  
+// SQL query to select data from database 
+$sql20 = "SELECT * FROM property"; 
+$result20 = $mysqli->query($sql20); 
+
+$sql21 = "SELECT * FROM registration"; 
+$result21 = $mysqli->query($sql21); 
+
+$sql22 = "SELECT * FROM property"; 
+$result22 = $mysqli->query($sql22); 
+$mysqli->close(); 
+
+
+?>
+
+
+<body>
+    <section>
+
+
+        <h1 style="padding-top: 50px">Property Table</h1>
+
+        <div style="text-align: center">
+            <form name="form" method="post" style="margin : auto">
+                <div style="padding: 10px">
+                    <input type="submit" name="button2" value="Make Connection" class="btn-dark" />
+
+                </div>
+
+            </form>
+        </div>
+        <!-- TABLE CONSTRUCTION-->
+        <table>
+            <tr>
+                <th>property_id</th>
+                <th>location</th>
+                <th>established_date</th>
+                <th>owner_id</th>
+                <th>cust_id</th>
+            </tr>
+            <!-- PHP CODE TO FETCH DATA FROM ROWS-->
+            <?php   // LOOP TILL END OF DATA  
+                while($rows=$result20->fetch_assoc()) 
+                { 
+             ?>
+            <tr>
+                <!--FETCHING DATA FROM EACH  
+                    ROW OF EVERY COLUMN-->
+                <td><?php echo $rows['property_id'];?></td>
+                <td><?php echo $rows['location'];?></td>
+                <td><?php echo $rows['established_date'];?></td>
+                <td><?php echo $rows['owner_id'];?></td>
+                <td><?php echo $rows['cust_id'];?></td>
+            </tr>
+            <?php 
+                } 
+             ?>
+        </table>
+    </section>
+
+    <br>
+    <br>
+    <br>
+    <section>
+        <div style="text-align: center">
+            <form name="form" method="post" style="margin : auto">
+                <div style="margin:20px">
+                    <input type="submit" name="button3" value="Cancel Booking" class="btn-dark" />
+                    <input type="text" name="property_id">
+                </div>
+
+                <div style="margin:20px">
+                    <input type="submit" name="button1" value="Confirm Resgitration" class="btn-dark" />
+                    <input type="text" name="property_id2">
+                </div>
+
+            </form>
+        </div>
+
+        <h1>Registration</h1>
+        <!-- TABLE CONSTRUCTION-->
+        <table>
+            <tr>
+                <th>registration_id</th>
+                <th>date_of_deal</th>
+                <th>owner_id</th>
+                <th>property_id</th>
+                <th>cust_id</th>
+            </tr>
+            <!-- PHP CODE TO FETCH DATA FROM ROWS-->
+            <?php   // LOOP TILL END OF DATA  
+                while($rows=$result21->fetch_assoc()) 
+                { 
+             ?>
+            <tr>
+                <!--FETCHING DATA FROM EACH  
+                    ROW OF EVERY COLUMN-->
+                <td><?php echo $rows['registration_id'];?></td>
+                <td><?php echo $rows['date_of_deal'];?></td>
+                <td><?php echo $rows['owner_id'];?></td>
+                <td><?php echo $rows['property_id'];?></td>
+                <td><?php echo $rows['cust_id'];?></td>
+            </tr>
+            <?php 
+                } 
+             ?>
+        </table>
+    </section>
 </body>
 
 </html>

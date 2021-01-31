@@ -4,6 +4,7 @@ if (!$conn) {
     die('Could not Connect MySql Server:' . mysqli_error($conn));
 }
 
+session_start()
 
 $name = $_POST['name'];
 $contactno = $_POST['contactno'];
@@ -22,6 +23,7 @@ $user_id++;
 echo 'result is'. $result1;
 $sql = "INSERT INTO maintable (user_id,name,email_id,contact_no,password)
      VALUES ('$user_id','$name','$emailid','$contactno','$passw')";
+
 
 if (mysqli_query($conn, $sql)) {
     echo "<script>
