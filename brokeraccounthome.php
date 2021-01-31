@@ -159,41 +159,7 @@
         </div>
     </nav>
 
-    <?php
-		$conn = mysqli_connect("localhost", "root", "", "miniproject");
-        // Check connection
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-        }
 
-        
-if (isset($_POST['button1'])) {
-$sql15 = "DELETE FROM property where property_id = 9001";
-if (mysqli_query($conn, $sql15)) {
-    echo "Record deleted successfully";
-  } else {
-    echo "Error deleting record:" . $conn->error;
-  }
-}
-    
-    if(isset($_POST['button2'])){
-        $sql16 = "Call update_cust()";
-        if (mysqli_query($conn, $sql16)) {
-            echo "Connection established successfully!";
-          } else {
-            echo "Error deleting record: " . $conn->error;
-          }
-    }
-    
-    if(isset($_POST['button3'])){
-        $sql17 = "UPDATE property set cust_id = NULL where property_id = $propertyID1";
-        if (mysqli_query($conn, $sql17)) {
-            echo "Cancel the booking";
-          } else {
-            echo "Error deleting record: " . $conn->error;
-          }
-    }//if isset
-    ?>
 
 </html>
 </form>
@@ -283,20 +249,19 @@ $mysqli->close();
     <br>
     <section>
         <div style="text-align: center">
-            <form name="form" method="post" style="margin : auto" action="brokeraccounthome.php">
+            <form name="form" method="post" style="margin : auto">
                 <div style="margin:20px">
                     <input type="submit" name="button3" value="Cancel Booking" class="btn-dark" />
-                    <input type="text" name="property_id1">
-                    <!--  $propertyID1 = $_POST['property_id1']; ?> -->
+                    <input type="text" name="propertyID1">
                 </div>
-
+            </form>
+            <form name="form" method="post" style="margin : auto">
                 <div style="margin:20px">
                     <input type="submit" name="button1" value="Confirm Resgitration" class="btn-dark" />
-                    <input type="text" name="property_id2">
-                    <!--  $propertyID2 = $_POST['property_id2']; ?> -->
+                    <input type="text" name="propertyID2">
                 </div>
-
             </form>
+
         </div>
 
         <h1>Registration</h1>
@@ -328,6 +293,45 @@ $mysqli->close();
              ?>
         </table>
     </section>
+
+    <?php
+		$conn = mysqli_connect("localhost", "root", "", "miniproject");
+        // Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+        }
+
+  
+        
+if (isset($_POST['button1'])) {
+    $propertyID2 = $_POST['propertyID2'];   
+$sql15 = "DELETE FROM property where property_id = '$propertyID2'";
+if (mysqli_query($conn, $sql15)) {
+    echo "Record deleted successfully";
+  } else {
+    echo "Error deleting record:" . $conn->error;
+  }
+}
+    
+    if(isset($_POST['button2'])){
+        $sql16 = "Call update_cust()";
+        if (mysqli_query($conn, $sql16)) {
+            echo "Connection established successfully!";
+          } else {
+            echo "Error deleting record: " . $conn->error;
+          }
+    }
+    
+    if(isset($_POST['button3'])){
+        $propertyID1 = $_POST['propertyID1'];
+        $sql17 = "UPDATE property set cust_id = NULL where property_id = '$propertyID1'";
+        if (mysqli_query($conn, $sql17)) {
+            echo "Cancel the booking";
+          } else {
+            echo "Error deleting record: " . $conn->error;
+          }
+    }//if isset
+    ?>
 </body>
 
 </html>
