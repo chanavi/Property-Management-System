@@ -168,7 +168,8 @@
 
         
 if (isset($_POST['button1'])) {
-$sql15 = "DELETE FROM property where property_id = 9003";
+    echo "Button 1 pressed";
+$sql15 = "DELETE FROM property where property_id = 9001";
 if (mysqli_query($conn, $sql15)) {
     echo "Record deleted successfully";
   } else {
@@ -186,7 +187,7 @@ if (mysqli_query($conn, $sql15)) {
     }
     
     if(isset($_POST['button3'])){
-        $sql17 = "UPDATE property set cust_id = NULL where property_id = 9002";
+        $sql17 = "UPDATE property set cust_id = NULL where property_id = $propertyID1";
         if (mysqli_query($conn, $sql17)) {
             echo "Cancel the booking";
           } else {
@@ -206,12 +207,7 @@ if (mysqli_query($conn, $sql15)) {
 // Username is root 
 $user = 'root'; 
 $password = '';  
-  
-// Database name is gfg 
-$database = 'miniproject';  
-  
-// Server is localhost with 
-// port number 3308 
+$database = 'miniproject';   
 $servername='localhost'; 
 $mysqli = new mysqli($servername, $user,  
                 $password, $database); 
@@ -243,7 +239,7 @@ $mysqli->close();
     <section>
 
 
-        <h1 style="padding-top: 50px">Property Table</h1>
+        <h1 style="padding-top: 100px">Property Table</h1>
 
         <div style="text-align: center">
             <form name="form" method="post" style="margin : auto">
@@ -257,11 +253,11 @@ $mysqli->close();
         <!-- TABLE CONSTRUCTION-->
         <table>
             <tr>
-                <th>property_id</th>
-                <th>location</th>
-                <th>established_date</th>
-                <th>owner_id</th>
-                <th>cust_id</th>
+                <th>Property ID</th>
+                <th>Location</th>
+                <th>Established Date</th>
+                <th>Owner ID</th>
+                <th>Customer ID</th>
             </tr>
             <!-- PHP CODE TO FETCH DATA FROM ROWS-->
             <?php   // LOOP TILL END OF DATA  
@@ -288,15 +284,17 @@ $mysqli->close();
     <br>
     <section>
         <div style="text-align: center">
-            <form name="form" method="post" style="margin : auto">
+            <form name="form" method="post" style="margin : auto" action="brokeraccounthome.php">
                 <div style="margin:20px">
                     <input type="submit" name="button3" value="Cancel Booking" class="btn-dark" />
-                    <input type="text" name="property_id">
+                    <input type="text" name="property_id1">
+                    <?php $propertyID1 = $_POST['property_id1']; ?>
                 </div>
 
                 <div style="margin:20px">
                     <input type="submit" name="button1" value="Confirm Resgitration" class="btn-dark" />
                     <input type="text" name="property_id2">
+                    <?php $propertyID2 = $_POST['property_id2']; ?>
                 </div>
 
             </form>
@@ -306,11 +304,11 @@ $mysqli->close();
         <!-- TABLE CONSTRUCTION-->
         <table>
             <tr>
-                <th>registration_id</th>
-                <th>date_of_deal</th>
-                <th>owner_id</th>
-                <th>property_id</th>
-                <th>cust_id</th>
+                <th>Registration ID</th>
+                <th>Date of Deal</th>
+                <th>Owner ID</th>
+                <th>Property ID</th>
+                <th>Customer ID</th>
             </tr>
             <!-- PHP CODE TO FETCH DATA FROM ROWS-->
             <?php   // LOOP TILL END OF DATA  
