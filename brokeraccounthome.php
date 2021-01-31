@@ -287,13 +287,13 @@ $mysqli->close();
                 <div style="margin:20px">
                     <input type="submit" name="button3" value="Cancel Booking" class="btn-dark" />
                     <input type="text" name="property_id1">
-                    <?php $propertyID1 = $_POST['property_id1']; ?>
+                    <!--  $propertyID1 = $_POST['property_id1']; ?> -->
                 </div>
 
                 <div style="margin:20px">
                     <input type="submit" name="button1" value="Confirm Resgitration" class="btn-dark" />
                     <input type="text" name="property_id2">
-                    <?php $propertyID2 = $_POST['property_id2']; ?>
+                    <!--  $propertyID2 = $_POST['property_id2']; ?> -->
                 </div>
 
             </form>
