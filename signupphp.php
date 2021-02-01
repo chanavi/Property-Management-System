@@ -8,7 +8,7 @@ $name = $_POST['name'];
 $contactno = $_POST['contactno'];
 $emailid = $_POST['emailid'];
 $passw = $_POST['passw'];
-$boc=$_POST['bco'];
+
 
 $sql="Select MAX(user_id) from maintable";
 $result = $conn->query($sql);
