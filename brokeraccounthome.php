@@ -194,8 +194,10 @@ $result21 = $mysqli->query($sql21);
 
 $sql22 = "SELECT * FROM property"; 
 $result22 = $mysqli->query($sql22); 
-$mysqli->close(); 
 
+$sql23 = "SELECT * FROM customer"; 
+$result23 = $mysqli->query($sql23); 
+$mysqli->close(); 
 
 ?>
 
@@ -248,23 +250,25 @@ $mysqli->close();
     <br>
     <br>
     <section>
+
+
         <div style="text-align: center">
             <form name="form" method="post" style="margin : auto">
                 <div style="margin:20px">
-                    <input type="submit" name="button3" value="Cancel Booking" class="btn-dark" />
                     <input type="text" name="propertyID1">
+                    <input type="submit" name="button3" value="Cancel Booking" class="btn-dark" />
                 </div>
             </form>
             <form name="form" method="post" style="margin : auto">
                 <div style="margin:20px">
-                    <input type="submit" name="button1" value="Confirm Resgitration" class="btn-dark" />
                     <input type="text" name="propertyID2">
+                    <input type="submit" name="button1" value="Confirm Resgitration" class="btn-dark" />
                 </div>
             </form>
 
         </div>
 
-        <h1>Registration</h1>
+        <h1 style="padding:50px">Registration</h1>
         <!-- TABLE CONSTRUCTION-->
         <table>
             <tr>
@@ -293,6 +297,41 @@ $mysqli->close();
              ?>
         </table>
     </section>
+
+    <section>
+
+        <h1 style="padding:50px">Customer</h1>
+        <!-- TABLE CONSTRUCTION-->
+        <table>
+            <tr>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th>Email ID</th>
+                <th>Broker ID</th>
+                <th>Financial Consultant</th>
+                <th>Property ID</th>
+            </tr>
+            <!-- PHP CODE TO FETCH DATA FROM ROWS-->
+            <?php   // LOOP TILL END OF DATA  
+                while($rows=$result23->fetch_assoc()) 
+                { 
+             ?>
+            <tr>
+                <!--FETCHING DATA FROM EACH  
+                    ROW OF EVERY COLUMN-->
+                <td><?php echo $rows['cust_id'];?></td>
+                <td><?php echo $rows['cust_name'];?></td>
+                <td><?php echo $rows['email_id'];?></td>
+                <td><?php echo $rows['broker_id'];?></td>
+                <td><?php echo $rows['cid'];?></td>
+                <td><?php echo $rows['property_id'];?></td>
+            </tr>
+            <?php 
+                } 
+             ?>
+        </table>
+    </section>
+
 
     <?php
 		$conn = mysqli_connect("localhost", "root", "", "miniproject");
